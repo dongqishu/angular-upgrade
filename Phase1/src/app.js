@@ -1,15 +1,19 @@
-angular.module('app', []);
+(function(){
+    'use strict';
 
-angular.module('app')
-       .config(routes);
+    angular.module('app', ['ngRoute']);
 
-var routes = function($routeProvider){
-    $routeProvider
-        .when('/product/:id', {
-            templateUrl: '/views/product.html',
-            controller: 'ProductController'
-        }).
-        otherwise({
-            redirectTo: '/product/1'
-        });
-}
+    angular.module('app')
+        .config(function($routeProvider, $locationProvider){
+                $routeProvider
+                    .when('/product/:id', {
+                        templateUrl: '/Phase1/src/views/product.html',
+                        controller: 'ProductController'
+                    }).
+                    otherwise({
+                        redirectTo: '/product/1'
+                    });
+                $locationProvider.html5Mode(true);
+                });
+})();
+

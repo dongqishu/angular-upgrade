@@ -1,12 +1,17 @@
 <html>
     <head>
+        <base href="/Phase1/">
         <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body ng-app="app">
-        <p>test</p>
-        <script src="src/app.js"></script>
+        <ng-view></ng-view>
+
         <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/angular-route/angular-route.min.js"></script>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="src/app.js"></script>
+        <script src="src/controllers/product.controller.js"></script>
+        <script src="src/services/product.service.js"></script>
     </body>
 </html>
