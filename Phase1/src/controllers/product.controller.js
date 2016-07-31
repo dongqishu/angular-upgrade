@@ -5,8 +5,8 @@
         .module('app')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$scope', 'ProductService', '$routeParams'];
-    function ProductController($scope, ProductService, $routeParams) {
+    ProductController.$inject = ['$scope', 'ProductService', '$routeParams', '$location'];
+    function ProductController($scope, ProductService, $routeParams, $location) {
         $scope.product = {};
         $scope.products = [];
 
@@ -15,12 +15,17 @@
                 .then(res => {
                     $scope.product = res.data;
                     $scope.product.quantity = 1;
+                    $scope.product.selectedTab = 'description';
                 }, error => console.log(error));
         } else {
             ProductService.getProducts()
                 .then(res => {
                     $scope.products = res.data;
                 }, error => console.log(error));
+        }
+
+        $scope.selectProduct = function(product){
+            $location.path('/product/' + product.id);
         }
     }
 })();

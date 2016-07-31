@@ -67,22 +67,30 @@
                 <div class="col-md-12">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="nav-item active">
-                            <a href="#description" role="tab" data-toggle="tab" class="nav-link active">Description</a>
+                        <li role="presentation" class="nav-item" ng-class="product.selectedTab === 'description' ? 'active': ''">
+                            <a ng-click="product.selectedTab = 'description'" 
+                               ng-class="product.selectedTab === 'description' ? 'active': ''"
+                               role="tab" class="nav-link">Description</a>
                         </li>
-                        <li role="presentation" class="nav-item">
-                            <a href="#features" role="tab" data-toggle="tab" class="nav-link">Features</a>
+                        <li role="presentation" class="nav-item" ng-class="product.selectedTab === 'features' ? 'active': ''">
+                            <a ng-click="product.selectedTab = 'features'" 
+                               ng-class="product.selectedTab === 'features' ? 'active': ''"
+                               role="tab" class="nav-link">Features</a>
                         </li>
-                        <li role="presentation" class="nav-item">
-                            <a href="#notes" role="tab" data-toggle="tab" class="nav-link">Notes</a>
+                        <li role="presentation" class="nav-item" ng-class="product.selectedTab === 'notes' ? 'active': ''">
+                            <a ng-click="product.selectedTab = 'notes'" 
+                               ng-class="product.selectedTab === 'notes' ? 'active': ''"
+                               role="tab" class="nav-link">Notes</a>
                         </li>
-                        <li role="presentation" class="nav-item">
-                            <a href="#reviews" role="tab" data-toggle="tab" class="nav-link">Reviews</a>
+                        <li role="presentation" class="nav-item" ng-class="product.selectedTab === 'reviews' ? 'active': ''">
+                            <a ng-click="product.selectedTab = 'reviews'" 
+                               ng-class="product.selectedTab === 'reviews' ? 'active': ''"
+                               role="tab" class="nav-link">Reviews</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="description">
+                        <div role="tabpanel" ng-class="product.selectedTab === 'description' ? 'active': ''" class="tab-pane" id="description">
                             <p class="top-10">
                                 {{ product.longDescription }}
                             </p>
@@ -90,15 +98,15 @@
                                 <small>(source <a ng-href="product.sourceUrl">{{ product.sourceUrl }}</a>)</small>
                             </p>
                         </div>
-                        <div role="tabpanel" class="tab-pane top-10" id="features">
+                        <div role="tabpanel" ng-class="product.selectedTab === 'features' ? 'active': ''" class="tab-pane top-10" id="features">
                             <ul>
                                 <li ng-repeat="feature in product.features">{{ feature }}</li>
                             </ul>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="notes">
+                        <div role="tabpanel" ng-class="product.selectedTab === 'notes' ? 'active': ''" class="tab-pane" id="notes">
                             <p>Notes</p>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="reviews">
+                        <div role="tabpanel" ng-class="product.selectedTab === 'reviews' ? 'active': ''" class="tab-pane" id="reviews">
                             <p>reviews</p>
                         </div>
                     </div>

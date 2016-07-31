@@ -11,7 +11,7 @@
         this.getProductById = getProductById;
 
         function getProducts() { 
-            return $http.get('/src/services/productList.json');
+            return $http.get('/src/services/product-list.json');
         }
 
         function getProductById(id){
