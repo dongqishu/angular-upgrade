@@ -3,3 +3,6 @@
   height: 46px;
 }
 .add-to-cart .btn { border-radius: 0; }
+.tab-content {
+  margin: 10px;
+}

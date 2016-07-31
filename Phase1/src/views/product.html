@@ -1,36 +1,36 @@
 <div class="container" id="product-section">
     <div class="row">
         <div class="col-md-6">
-            <img src="images/camera-1248682_640.jpg" class="img-responsive" />
+            <img ng-src="{{product.imageUrl}}" class="img-responsive" />
         </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Ricoh 500 GX Camera</h1>
+                    <h1>{{ product.name }}</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <span class="label label-primary">Vintage</span>
-                    <span>No. 1960140180</span>
+                    <span class="label label-primary">{{ product.tag }}</span>
+                    <span>{{ product.model }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <p class="description">
-                        Classic film camera. Uses 620 roll film. Has a 2&frac14; x 3&frac14; inch image size.
+                        {{ product.description }}
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <span class="sr-only">Four out of Five Stars</span>
+                    <span class="sr-only">{{ product.reviews.stars }}</span>
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                    <span class="label label-success">61</span>
+                    <span class="label label-success">{{ product.reviews.count }}</span>
                 </div>
                 <div class="col-md-3">
                     <span class="monospaced">Write a Review</span>
@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 bottom-rule">
-                    <h2 class="product-price">$129.00</h2>
+                    <h2 class="product-price">{{ product.price | currency }}</h2>
                 </div>
             </div>
             <div class="row add-to-cart">
@@ -46,7 +46,7 @@
                     <span class="btn btn-default btn-lg btn-qty">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </span>
-                    <input class="btn btn-default btn-lg btn-qty" value="1" />
+                    <input class="btn btn-default btn-lg btn-qty" ng-model="product.quantity" />
                     <span class="btn btn-default btn-lg btn-qty">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                     </span>
@@ -59,9 +59,6 @@
                 <div class="col-md-4 text-center">
                     <span class="monospaced">In Stock</span>
                 </div>
-                <div class="col-md-4 col-md-offset-1 text-center">
-                    <a class="monospaced" href="#">Add to Shopping List</a>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-12 bottom-rule top-10"></div>
@@ -70,47 +67,36 @@
                 <div class="col-md-12">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a>
+                        <li role="presentation" class="nav-item active">
+                            <a href="#description" role="tab" data-toggle="tab" class="nav-link active">Description</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#features" aria-controls="features" role="tab" data-toggle="tab">Features</a>
+                        <li role="presentation" class="nav-item">
+                            <a href="#features" role="tab" data-toggle="tab" class="nav-link">Features</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a>
+                        <li role="presentation" class="nav-item">
+                            <a href="#notes" role="tab" data-toggle="tab" class="nav-link">Notes</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a>
+                        <li role="presentation" class="nav-item">
+                            <a href="#reviews" role="tab" data-toggle="tab" class="nav-link">Reviews</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="description">
                             <p class="top-10">
-                                The Ricoh 500 GX is a handy rangefinder camera with fixed lens made in Taiwan by Ricoh. Its special feature is an easy-to-use multi-exposure facility.
+                                {{ product.longDescription }}
                             </p>
                             <p>
-                                <small>(source <a href="http://camerapedia.wikia.com/wiki/Ricoh_500GX">http://camerapedia.wikia.com/wiki/Ricoh_500GX</a>)
-  </small>
+                                <small>(source <a ng-href="product.sourceUrl">{{ product.sourceUrl }}</a>)</small>
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane top-10" id="features">
                             <ul>
-                                <li>Type: rangefinder camera with electronic aperture control for shutter priority operation option</li>
-                                <li>Films: 35mm with speeds of 25 - 800 ASA</li>
-                                <li>Lens: Rikenon 1:2.8/40mm</li>
-                                <li>Shutter: Speeds 1/8 - 1/500 sec.</li>
-                                <li>Aperture: 1/2.8 - 1:16</li>
-                                <li>Exposure: manual shutter speed selection, aperture controlled by CdS-meter or manually</li>
-                                <li>Viewfinder: optical finder, superimposed rangefinder, parallax correction marks, "M" for manual operation visible, and the exposure meter's needle shows f-stop value or works as battery control</li>
-                                <li>Focusing: manual focusing with help of coupled rangefinder</li>
-                                <li>Battery: 1,35 volt mercury battery PX675</li>
-                                <li>Dimensions: 111×71×56 mm</li>
-                                <li>Weight: 420 g</li>
+                                <li ng-repeat="feature in product.features">{{ feature }}</li>
                             </ul>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="notes">
-                            <p>notes</p>
+                            <p>Notes</p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="reviews">
                             <p>reviews</p>
