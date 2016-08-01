@@ -27,5 +27,18 @@
         $scope.selectProduct = function(product){
             $location.path('/product/' + product.id);
         }
+
+        $scope.decreaseQuantity = function(product){
+            if (product.quantity <= 1) return;
+            product.quantity--;
+        }
+
+        $scope.increaseQuantity = function(product){
+            product.quantity++;
+        }
+
+        $scope.addToCart = function(product){
+            console.log('add to cart');
+        }
     }
 })();
