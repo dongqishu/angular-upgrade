@@ -5,7 +5,8 @@
     "description": "The Ricoh 500 is a 35 mm rangefinder camera with fixed lens made in Japan by Ricoh from 1957.",
     "reviews": {
         "stars": "Four out of Five Stars",
-        "count": 61
+        "count": 61,
+        "myRating": null
     },
     "price": 129,
     "longDescription": "The Ricoh 500 GX is a handy rangefinder camera with fixed lens made in Taiwan by Ricoh. Its special feature is an easy-to-use multi-exposure facility.",

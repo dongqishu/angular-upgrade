@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-3" ng-mouseleave="starExit()">
+        <span class="sr-only">{{ reviews.stars }}</span>
+        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(1)" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(2)" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(3)" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(4)" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" ng-mouseover="starHover(5)" aria-hidden="true"></span>
+        <span class="label label-success">{{ reviews.count }}</span>
+    </div>
+</div>
