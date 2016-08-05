@@ -5,7 +5,6 @@
         .module('app')
         .directive('appReviews', ReviewsDirective);
 
-    ReviewsDirective.$inject = [];
     function ReviewsDirective() {
         var directive = {
             controller: ReviewsController,
@@ -13,7 +12,8 @@
             restrict: 'E',
             templateUrl: '/src/directives/reviews.html',
             scope: {
-                reviews: '=reviews'
+                // passing product by reference (mutable)
+                product: '=product'
             }
         };
         return directive;
@@ -22,7 +22,7 @@
         }
     }
     
-    function ReviewsController($scope) {
+    function ReviewsController($scope, ProductService) {
         $scope.hoveringOver = 0;
         $scope.starHover = function(starNum){
             console.log("star hover " + starNum);
@@ -30,16 +30,16 @@
         }
 
         $scope.starStyle = function(starNum){
-            if (starNum <= $scope.hoveringOver || (starNum <= $scope.reviews.myRating && $scope.hoveringOver === 0)) {
+            if (starNum <= $scope.hoveringOver || (starNum <= $scope.product.reviews.myRating && $scope.hoveringOver === 0)) {
                 return { "color" : "gold" };
             }
             return {};
         }
 
         $scope.hasStar = function(starNum){
-            if ((starNum <= $scope.reviews.stars && $scope.reviews.myRating === null) 
+            if ((starNum <= $scope.product.reviews.stars && $scope.product.reviews.myRating === null) 
             || starNum <= $scope.hoveringOver || 
-            (starNum <= $scope.reviews.myRating && $scope.hoveringOver === 0)){
+            (starNum <= $scope.product.reviews.myRating && $scope.hoveringOver === 0)){
                 return true;
             }
             return false;
@@ -52,7 +52,10 @@
 
         $scope.rateProduct = function(starNum){
             console.log("Rating product " + starNum + " stars.");
-            $scope.reviews.myRating = starNum;
+            // changing state of Product
+            $scope.product.reviews.myRating = starNum;
+            // calling a service
+            ProductService.rateProduct($scope.product.id, starNum);
         }
     }
 })();

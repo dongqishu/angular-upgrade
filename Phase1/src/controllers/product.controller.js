@@ -16,6 +16,7 @@
                     $scope.product = res.data;
                     $scope.product.quantity = 1;
                     $scope.product.selectedTab = 'description';
+                    $scope.productLoaded = true;
                 }, error => console.log(error));
         } else {
             ProductService.getProducts()
