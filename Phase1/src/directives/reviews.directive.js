@@ -23,12 +23,36 @@
     }
     
     function ReviewsController($scope) {
-        $scope.starHover = function(stars){
-            console.log("star hover " + stars);
+        $scope.hoveringOver = 0;
+        $scope.starHover = function(starNum){
+            console.log("star hover " + starNum);
+            $scope.hoveringOver = starNum;
+        }
+
+        $scope.starStyle = function(starNum){
+            if (starNum <= $scope.hoveringOver || (starNum <= $scope.reviews.myRating && $scope.hoveringOver === 0)) {
+                return { "color" : "gold" };
+            }
+            return {};
+        }
+
+        $scope.hasStar = function(starNum){
+            if ((starNum <= $scope.reviews.stars && $scope.reviews.myRating === null) 
+            || starNum <= $scope.hoveringOver || 
+            (starNum <= $scope.reviews.myRating && $scope.hoveringOver === 0)){
+                return true;
+            }
+            return false;
         }
 
         $scope.starExit = function(){
             console.log("star exit");
+            $scope.hoveringOver = 0;
+        }
+
+        $scope.rateProduct = function(starNum){
+            console.log("Rating product " + starNum + " stars.");
+            $scope.reviews.myRating = starNum;
         }
     }
 })();

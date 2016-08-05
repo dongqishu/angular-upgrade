@@ -1,11 +1,17 @@
 <div class="row">
     <div class="col-md-3" ng-mouseleave="starExit()">
-        <span class="sr-only">{{ reviews.stars }}</span>
-        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(1)" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(2)" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(3)" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star" ng-mouseover="starHover(4)" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star-empty" ng-mouseover="starHover(5)" aria-hidden="true"></span>
+        <span class="sr-only">"Four out of Five Stars"</span>
+            <a href ng-repeat="i in [1, 2, 3, 4, 5]" ng-click="rateProduct(i)" style="text-decoration:none">
+            <span class="glyphicon" 
+                ng-class="hasStar(i) ? 'glyphicon-star': 'glyphicon-star-empty'" 
+                ng-mouseover="starHover(i)"
+                ng-style="starStyle(i)"
+                aria-hidden="true">
+            </span>
+            </a>
+
         <span class="label label-success">{{ reviews.count }}</span>
     </div>
 </div>
+
+<!-- "Four out of Five Stars" -->

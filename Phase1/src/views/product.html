@@ -22,7 +22,7 @@
                     </p>
                 </div>
             </div>
-            <app-reviews reviews="product.reviews"></app-reviews>
+            <app-reviews reviews="product.reviews" ng-if="product.reviews"></app-reviews>
             <div class="row">
                 <div class="col-md-12 bottom-rule">
                     <h2 class="product-price">{{ product.price | currency }}</h2>
