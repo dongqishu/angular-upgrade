@@ -10,7 +10,7 @@
             controller: ReviewsController,
             link: link,
             restrict: 'E',
-            templateUrl: '/src/directives/reviews.html',
+            templateUrl: '/src/reviews/reviews.html',
             scope: {
                 // passing product by reference (mutable)
                 product: '=product'

@@ -7,12 +7,10 @@
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/products', {
-                    templateUrl: '/src/product-list/product-list.html',
-                    controller: 'ProductListController'
+                    template: '<app-product-list></app-product-list>'
                 })
                 .when('/product/:id', {
-                    templateUrl: '/src/product/product.html',
-                    controller: 'ProductController'
+                    template: '<app-product></app-product>'
                 })
                 .otherwise({
                     redirectTo: '/products'

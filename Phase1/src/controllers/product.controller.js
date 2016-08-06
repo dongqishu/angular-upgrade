@@ -5,7 +5,6 @@
         .module('app')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$scope', 'ProductService', '$routeParams', '$location'];
     function ProductController($scope, ProductService, $routeParams, $location) {
         $scope.product = {};
         $scope.products = [];
