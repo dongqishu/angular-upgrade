@@ -1,0 +1,109 @@
+<div class="container" id="product-section" ng-if="$ctrl.productLoaded">
+    <div class="row">
+        <div class="col-md-6">
+            <img ng-src="{{ $ctrl.product.imageUrl }}" class="img-responsive" />
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ $ctrl.product.name }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="label label-primary">{{ $ctrl.product.tag }}</span>
+                    <span>{{ $ctrl.product.model }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="description">
+                        {{ $ctrl.product.description }}
+                    </p>
+                </div>
+            </div>
+            <app-reviews product="$ctrl.product"></app-reviews>
+            <div class="row">
+                <div class="col-md-12 bottom-rule">
+                    <h2 class="product-price">{{ $ctrl.product.price | currency }}</h2>
+                </div>
+            </div>
+            <div class="row add-to-cart">
+                <div class="col-md-5 product-qty">
+                    <span class="btn btn-default btn-lg btn-qty" ng-click="$ctrl.increaseQuantity($ctrl.product)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </span>
+                    <input class="btn btn-default btn-lg btn-qty" ng-model="$ctrl.product.quantity" />
+                    <span class="btn btn-default btn-lg btn-qty" 
+                          ng-disabled="$ctrl.product.quantity <= 1"
+                          ng-click="$ctrl.decreaseQuantity($ctrl.product)">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-lg btn-brand btn-full-width" ng-click="$ctrl.addToCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <span class="monospaced">In Stock</span>
+                </div>
+                <div class="col-md-5 text-center">
+                    <span class="monospaced">{{ $ctrl.product.price * $ctrl.product.quantity | currency}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 bottom-rule top-10"></div>
+            </div>
+            <div class="row tabbed-product-info">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item" ng-class="$ctrl.product.selectedTab === 'description' ? 'active': ''">
+                            <a ng-click="$ctrl.product.selectedTab = 'description'" 
+                               ng-class="$ctrl.product.selectedTab === 'description' ? 'active': ''"
+                               role="tab" class="nav-link">Description</a>
+                        </li>
+                        <li role="presentation" class="nav-item" ng-class="$ctrl.product.selectedTab === 'features' ? 'active': ''">
+                            <a ng-click="$ctrl.product.selectedTab = 'features'" 
+                               ng-class="$ctrl.product.selectedTab === 'features' ? 'active': ''"
+                               role="tab" class="nav-link">Features</a>
+                        </li>
+                        <li role="presentation" class="nav-item" ng-class="$ctrl.product.selectedTab === 'notes' ? 'active': ''">
+                            <a ng-click="$ctrl.product.selectedTab = 'notes'" 
+                               ng-class="$ctrl.product.selectedTab === 'notes' ? 'active': ''"
+                               role="tab" class="nav-link">Notes</a>
+                        </li>
+                        <li role="presentation" class="nav-item" ng-class="$ctrl.product.selectedTab === 'reviews' ? 'active': ''">
+                            <a ng-click="$ctrl.product.selectedTab = 'reviews'" 
+                               ng-class="$ctrl.product.selectedTab === 'reviews' ? 'active': ''"
+                               role="tab" class="nav-link">Reviews</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" ng-class="$ctrl.product.selectedTab === 'description' ? 'active': ''" class="tab-pane" id="description">
+                            <p class="top-10">
+                                {{ $ctrl.product.longDescription }}
+                            </p>
+                            <p>
+                                <small>(source <a ng-href="$ctrl.product.sourceUrl">{{ $ctrl.product.sourceUrl }}</a>)</small>
+                            </p>
+                        </div>
+                        <div role="tabpanel" ng-class="$ctrl.product.selectedTab === 'features' ? 'active': ''" class="tab-pane top-10" id="features">
+                            <ul>
+                                <li ng-repeat="feature in $ctrl.product.features">{{ feature }}</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" ng-class="$ctrl.product.selectedTab === 'notes' ? 'active': ''" class="tab-pane" id="notes">
+                            <p>Notes</p>
+                        </div>
+                        <div role="tabpanel" ng-class="$ctrl.product.selectedTab === 'reviews' ? 'active': ''" class="tab-pane" id="reviews">
+                            <p>Reviews</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
