@@ -18,13 +18,8 @@ class ProductController {
             }, error => console.log(error));
     }
 
-    decreaseQuantity(): void {
-        if (this.quantity <= 1) return;
-        this.quantity--;
-    }
-
-    increaseQuantity(): void {
-        this.quantity++;
+    quantityChanged(quantity): void {
+        this.quantity = quantity;
     }
 
     addToCart(): void {

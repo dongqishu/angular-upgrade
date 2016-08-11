@@ -12,17 +12,11 @@ var ProductController = (function () {
             .then(function (res) {
             _this.product = res.data;
             _this.quantity = 1;
-            _this.selectedTab = 'description';
             _this.productLoaded = true;
         }, function (error) { return console.log(error); });
     };
-    ProductController.prototype.decreaseQuantity = function () {
-        if (this.quantity <= 1)
-            return;
-        this.quantity--;
-    };
-    ProductController.prototype.increaseQuantity = function () {
-        this.quantity++;
+    ProductController.prototype.quantityChanged = function (quantity) {
+        this.quantity = quantity;
     };
     ProductController.prototype.addToCart = function () {
         console.log('add to cart product id ' + this.product.id + ', quantity: ' + this.quantity);

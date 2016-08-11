@@ -29,17 +29,7 @@
                 </div>
             </div>
             <div class="row add-to-cart">
-                <div class="col-md-5 product-qty">
-                    <span class="btn btn-default btn-lg btn-qty" ng-click="$ctrl.increaseQuantity()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </span>
-                    <input class="btn btn-default btn-lg btn-qty" ng-model="$ctrl.quantity" />
-                    <span class="btn btn-default btn-lg btn-qty" 
-                          ng-disabled="$ctrl.quantity <= 1"
-                          ng-click="$ctrl.decreaseQuantity()">
-                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                    </span>
-                </div>
+                <app-product-quantity on-quantity-changed="$ctrl.quantityChanged(quantity)"></app-product-quantity>
                 <div class="col-md-4">
                     <button class="btn btn-lg btn-brand btn-full-width" ng-click="$ctrl.addToCart()">Add to Cart</button>
                 </div>
