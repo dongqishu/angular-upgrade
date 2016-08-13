@@ -274,9 +274,9 @@ module.exports = {
      *
      * Dependencies: HtmlWebpackPlugin
      */
-    new HtmlElementsPlugin({
-      headTags: require('./head-config.common')
-    }),
+    // new HtmlElementsPlugin({
+    //   headTags: require('./head-config.common')
+    // }),
 
   ],
 
