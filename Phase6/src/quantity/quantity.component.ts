@@ -1,4 +1,4 @@
-class ProductQuantityController {
+class QuantityController {
     quantity: number;
     onQuantityChanged: any;
 
@@ -21,9 +21,9 @@ class ProductQuantityController {
 
 angular
     .module('app')
-    .component('appProductQuantity', {
-        templateUrl: 'src/product-quantity/product-quantity.component.html',
-        controller: ProductQuantityController,
+    .component('appQuantity', {
+        templateUrl: 'src/quantity/quantity.component.html',
+        controller: QuantityController,
         bindings: {
             onQuantityChanged: '&'
         }
