@@ -1,4 +1,7 @@
-class ProductListController {
+import { ProductService } from './../services/product.service.ts';
+import { Product } from './../model/product.ts';
+
+export class ProductListController implements ng.IComponentController {
     products: Array<Product>;
 
     constructor(private $location: ng.ILocationService, 
@@ -18,9 +21,16 @@ class ProductListController {
     }
 } 
 
+export class ProductListComponent implements ng.IComponentOptions {
+    public controller:ng.IComponentController;
+    public templateUrl:string;
+
+    constructor() {
+        this.templateUrl = 'product-list.component.html';
+        this.controller = ProductListController;
+    }
+}
+
 angular
     .module('app')
-    .component('appProductList', {
-        templateUrl: '/src/product-list/product-list.component.html',
-        controller: ProductListController
-    });
+    .component('appProductList', new ProductListComponent());

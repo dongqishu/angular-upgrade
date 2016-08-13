@@ -1,4 +1,7 @@
-class ProductController {
+import { Product } from './../model/product.ts';
+import { ProductService } from './../services/product.service.ts';
+
+export class ProductController implements ng.IComponentController {
     product: Product;
     productLoaded: boolean;
     quantity: number;
@@ -33,9 +36,16 @@ class ProductController {
     }
 }
 
+export class ProductComponent implements ng.IComponentOptions {
+    public controller:ng.IComponentController;
+    public templateUrl:string;
+
+    constructor() {
+        this.templateUrl = 'product.component.html';
+        this.controller = ProductController;
+    }
+}
+
 angular
     .module('app')
-    .component('appProduct', {
-        templateUrl: 'src/product/product.component.html',
-        controller: ProductController
-    });
+    .component('appProduct', new ProductComponent());

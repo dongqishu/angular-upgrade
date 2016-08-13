@@ -1,4 +1,4 @@
-class ReviewsController {
+export class ReviewsController implements ng.IComponentController {
     hoveringOver: number;
     reviews: ProductReview;
 
@@ -39,13 +39,21 @@ class ReviewsController {
     }
 }
 
-angular
-    .module('app')
-    .component('appReviews', {
-        templateUrl: '/src/reviews/reviews.component.html',
-        controller: ReviewsController,
-        bindings: {
+export class ReviewsComponent implements ng.IComponentOptions {
+    bindings: any;
+    controller:ng.IComponentController;
+    templateUrl:string;
+
+    constructor() {
+        this.templateUrl = 'reviews.component.html';
+        this.controller = ReviewsController;
+        this.bindings = {
             reviews: "<",
             onRate: "&"
-        }    
-    });
+        }
+    }
+}
+
+angular
+    .module('app')
+    .component('appReviews', new ReviewsComponent());

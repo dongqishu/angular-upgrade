@@ -1,4 +1,6 @@
-class ProductService {
+import { Product } from './../model/product.ts';
+
+export class ProductService {
     constructor(public $http: ng.IHttpService){}
 
     public getProducts() { 

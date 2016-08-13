@@ -1,7 +1,7 @@
 angular.module('app', ['ngRoute']);
 
 angular.module('app')
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider: ng.route.IRouteProvider) {
         $routeProvider
             .when('/products', {
                 template: '<app-product-list></app-product-list>'
