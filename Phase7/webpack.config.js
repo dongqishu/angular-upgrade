@@ -1,4 +1,4 @@
-@@ -1,296 +0,0 @@
+
 /**
  * @author: @AngularClass
  */
@@ -143,7 +143,8 @@ module.exports = {
        */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        loaders: ['awesome-typescript-loader'],
+        // loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
 
@@ -221,9 +222,9 @@ module.exports = {
      * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['polyfills', 'vendor'].reverse()
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: ['polyfills', 'vendor'].reverse()
+    // }),
 
     /*
      * Plugin: CopyWebpackPlugin
