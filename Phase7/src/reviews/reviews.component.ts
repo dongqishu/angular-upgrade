@@ -48,7 +48,7 @@ export class ReviewsComponent implements IComponentOptions {
     templateUrl:string;
 
     constructor() {
-        this.templateUrl = 'reviews.component.html';
+        this.templateUrl = './reviews/reviews.component.html';
         this.controller = ReviewsController;
         this.bindings = {
             reviews: "<",
@@ -56,7 +56,3 @@ export class ReviewsComponent implements IComponentOptions {
         }
     }
 }
-
-angular
-    .module('app')
-    .component('appReviews', new ReviewsComponent());

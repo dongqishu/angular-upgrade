@@ -1,24 +1,25 @@
 import { ProductService } from './../services/product.service.ts';
 import { Product } from './../model/product.ts';
-import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
+import { IComponentController, IComponentOptions, IPromise } from 'angular';
+import { IStateService } from 'angular-ui-router';
 
 export class ProductListController implements IComponentController {
     products: Array<Product>;
 
-    constructor(private $location: ILocationService, 
+    constructor(private $state: IStateService,
                 private ProductService: ProductService) {}
 
     $onInit() {
         this.products = new Array<Product>();
 
         this.ProductService.getProducts()
-            .then((res: IHttpPromiseCallbackArg<Array<Product>>) => {
-                this.products = res.data;
+            .then((res: any) => {
+                this.products = res;
             }, error => console.log(error));
     } 
     
     selectProduct(product){
-        this.$location.path('/product/' + product.id);
+        this.$state.go('productDetails', { id: product.id });
     }
 } 
 
@@ -27,11 +28,7 @@ export class ProductListComponent implements IComponentOptions {
     public templateUrl:string;
 
     constructor() {
-        this.templateUrl = 'product-list.component.html';
+        this.templateUrl = './product-list/product-list.component.html';
         this.controller = ProductListController;
     }
 }
-
-angular
-    .module('app')
-    .component('appProductList', new ProductListComponent());

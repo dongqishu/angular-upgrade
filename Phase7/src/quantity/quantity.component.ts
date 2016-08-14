@@ -1,4 +1,5 @@
 import { IComponentController, IComponentOptions } from 'angular';
+import './quantity.component.css';
 
 export class QuantityController implements IComponentController {
     quantity: number;
@@ -27,14 +28,10 @@ export class QuantityComponent implements IComponentOptions {
     templateUrl:string;
 
     constructor() {
-        this.templateUrl = 'quantity.component.html';
+        this.templateUrl = './quantity/quantity.component.html';
         this.controller = QuantityController;
         this.bindings = {
             onQuantityChanged: '&'
         }
     }
 }
-
-angular
-    .module('app')
-    .component('appQuantity', new QuantityComponent());

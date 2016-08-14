@@ -19,7 +19,7 @@ const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Angular 2 Upgrade',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -163,10 +163,11 @@ module.exports = {
        * Returns file content as string
        *
        */
-      {
-        test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
-      },
+      { test: /\.css$/, loader: 'style!css' },
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['to-string-loader', 'css-loader']
+      // },
 
       /* Raw loader support for *.html
        * Returns file content as string
