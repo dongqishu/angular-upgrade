@@ -1,11 +1,7 @@
 import { Product } from './../model/product.ts';
 import { ProductService } from './../services/product.service.ts';
 import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
-import { IRouteParamsService } from 'angular-route';
-
-interface IRouteParams extends IRouteParamsService {
-    property1:string;
- }
+import { IStateParamsService } from 'angular-ui-router';
 
 export class ProductController implements IComponentController {
     product: Product;
@@ -13,12 +9,12 @@ export class ProductController implements IComponentController {
     quantity: number;
 
     constructor(private ProductService: ProductService, 
-                private $routeParams: any, 
+                private $stateParams: IStateParamsService, 
                 private $location: ILocationService){}
 
     $onInit() {
         this.product = new Product();
-        const id = this.$routeParams['id'];
+        const id = this.$stateParams['id'];
         this.ProductService.getProductById(id)
             .then((res: IHttpPromiseCallbackArg<Product>) => {
                 this.product = res.data;
