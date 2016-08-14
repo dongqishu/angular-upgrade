@@ -1,6 +1,7 @@
 import { Product } from './../model/product.ts';
+import { IComponentController, IComponentOptions } from 'angular';
 
-export class ProductTabsController implements ng.IComponentController {
+export class ProductTabsController implements IComponentController {
     product: Product;
     selectedTab: string;
 
@@ -11,9 +12,9 @@ export class ProductTabsController implements ng.IComponentController {
     }
 }
 
-export class ProductTabsComponent implements ng.IComponentOptions {
+export class ProductTabsComponent implements IComponentOptions {
     bindings: any;
-    controller:ng.IComponentController;
+    controller:IComponentController;
     templateUrl:string;
 
     constructor() {

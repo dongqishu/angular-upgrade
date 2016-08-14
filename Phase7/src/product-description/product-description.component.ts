@@ -1,4 +1,5 @@
 import { Product } from './../model/product.ts';
+import { IComponentController, IComponentOptions } from 'angular';
 
 export class ProductDescriptionController implements ng.IComponentController {
     product: Product;

@@ -1,17 +1,18 @@
 import { ProductService } from './../services/product.service.ts';
 import { Product } from './../model/product.ts';
+import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
 
-export class ProductListController implements ng.IComponentController {
+export class ProductListController implements IComponentController {
     products: Array<Product>;
 
-    constructor(private $location: ng.ILocationService, 
+    constructor(private $location: ILocationService, 
                 private ProductService: ProductService) {}
 
     $onInit() {
         this.products = new Array<Product>();
 
         this.ProductService.getProducts()
-            .then((res: ng.IHttpPromiseCallbackArg<Array<Product>>) => {
+            .then((res: IHttpPromiseCallbackArg<Array<Product>>) => {
                 this.products = res.data;
             }, error => console.log(error));
     } 
@@ -21,8 +22,8 @@ export class ProductListController implements ng.IComponentController {
     }
 } 
 
-export class ProductListComponent implements ng.IComponentOptions {
-    public controller:ng.IComponentController;
+export class ProductListComponent implements IComponentOptions {
+    public controller:IComponentController;
     public templateUrl:string;
 
     constructor() {

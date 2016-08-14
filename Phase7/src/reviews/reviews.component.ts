@@ -1,6 +1,9 @@
-export class ReviewsController implements ng.IComponentController {
+import { Reviews } from './../model/reviews.ts';
+import { IComponentController, IComponentOptions } from 'angular';
+
+export class ReviewsController implements IComponentController {
     hoveringOver: number;
-    reviews: ProductReview;
+    reviews: Reviews;
 
     constructor(){
         console.log('reviews constructor');
@@ -39,9 +42,9 @@ export class ReviewsController implements ng.IComponentController {
     }
 }
 
-export class ReviewsComponent implements ng.IComponentOptions {
+export class ReviewsComponent implements IComponentOptions {
     bindings: any;
-    controller:ng.IComponentController;
+    controller:IComponentController;
     templateUrl:string;
 
     constructor() {

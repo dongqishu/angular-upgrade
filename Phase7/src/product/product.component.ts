@@ -1,20 +1,26 @@
 import { Product } from './../model/product.ts';
 import { ProductService } from './../services/product.service.ts';
+import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
+import { IRouteParamsService } from 'angular-route';
 
-export class ProductController implements ng.IComponentController {
+interface IRouteParams extends IRouteParamsService {
+    property1:string;
+ }
+
+export class ProductController implements IComponentController {
     product: Product;
     productLoaded: boolean;
     quantity: number;
 
     constructor(private ProductService: ProductService, 
-                private $routeParams: ng.route.IRouteParamsService, 
-                private $location: ng.ILocationService){}
+                private $routeParams: any, 
+                private $location: ILocationService){}
 
     $onInit() {
         this.product = new Product();
         const id = this.$routeParams['id'];
         this.ProductService.getProductById(id)
-            .then((res: ng.IHttpPromiseCallbackArg<Product>) => {
+            .then((res: IHttpPromiseCallbackArg<Product>) => {
                 this.product = res.data;
                 this.quantity = 1;
                 this.productLoaded = true;
@@ -36,7 +42,7 @@ export class ProductController implements ng.IComponentController {
     }
 }
 
-export class ProductComponent implements ng.IComponentOptions {
+export class ProductComponent implements IComponentOptions {
     public controller:ng.IComponentController;
     public templateUrl:string;
 

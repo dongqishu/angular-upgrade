@@ -1,4 +1,6 @@
-export class QuantityController implements ng.IComponentController {
+import { IComponentController, IComponentOptions } from 'angular';
+
+export class QuantityController implements IComponentController {
     quantity: number;
     onQuantityChanged: any;
 
@@ -19,9 +21,9 @@ export class QuantityController implements ng.IComponentController {
     }
 }
 
-export class QuantityComponent implements ng.IComponentOptions {
+export class QuantityComponent implements IComponentOptions {
     bindings: any;
-    controller:ng.IComponentController;
+    controller:IComponentController;
     templateUrl:string;
 
     constructor() {

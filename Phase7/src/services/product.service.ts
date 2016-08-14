@@ -1,7 +1,8 @@
 import { Product } from './../model/product.ts';
+import { IHttpService } from 'angular';
 
 export class ProductService {
-    constructor(public $http: ng.IHttpService){}
+    constructor(public $http: IHttpService){}
 
     public getProducts() { 
         return this.$http.get<Array<Product>>('/src/services/product-list.json');
