@@ -2,6 +2,7 @@ import { Product } from './../model/product.ts';
 import { ProductService } from './../services/product.service.ts';
 import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
 import { IStateParamsService } from 'angular-ui-router';
+import 'product.component.css';
 
 export class ProductController implements IComponentController {
     product: Product;

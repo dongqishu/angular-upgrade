@@ -1,5 +1,6 @@
 import { Product } from './../model/product.ts';
 import { IComponentController, IComponentOptions } from 'angular';
+import 'product-tabs.component.css';
 
 export class ProductTabsController implements IComponentController {
     product: Product;
