@@ -1,0 +1,34 @@
+<div class="container" id="product-section" ng-if="$ctrl.productLoaded">
+    <div class="row">
+        <div class="col-md-6">
+            <img ng-src="{{ $ctrl.product.imageUrl }}" class="img-responsive" />
+        </div>
+        <div class="col-md-6">
+            <app-product-description product="$ctrl.product"></app-product-description>
+            <app-reviews reviews="$ctrl.product.reviews" on-rate="$ctrl.rateProduct(stars)"></app-reviews>
+            <div class="row">
+                <div class="col-md-12 bottom-rule">
+                    <h2 class="product-price">{{ $ctrl.product.price | currency }}</h2>
+                </div>
+            </div>
+            <div class="row add-to-cart">
+                <app-quantity on-quantity-changed="$ctrl.quantityChanged(quantity)"></app-quantity>
+                <div class="col-md-4">
+                    <button class="btn btn-lg btn-brand btn-full-width" ng-click="$ctrl.addToCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <span class="monospaced">In Stock</span>
+                </div>
+                <div class="col-md-5 text-center">
+                    <span class="monospaced">{{ $ctrl.product.price * $ctrl.quantity | currency}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 bottom-rule top-10"></div>
+            </div>
+            <app-product-tabs product="$ctrl.product"></app-product-tabs>
+        </div>
+    </div>
+</div>
