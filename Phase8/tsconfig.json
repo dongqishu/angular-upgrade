@@ -7,7 +7,10 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "removeComments": false,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "pretty": true,
+        "stripInternal": true,
+        "noEmitHelpers": true
     },
     "exclude": [
         "node_modules",

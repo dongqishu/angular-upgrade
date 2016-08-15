@@ -92,17 +92,19 @@ module.exports = {
 
     /*
      * An array of applied pre and post loaders.
-     *
      * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
      */
     preLoaders: [
 
       /*
        * Tslint loader support for *.ts files
-       *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        exclude: [ /node_modules/ ]
+      },
 
       /*
        * Source map loader support for *.js files
@@ -145,7 +147,7 @@ module.exports = {
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader'],
         // loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
-        exclude: [/\.(spec|e2e)\.ts$/]
+        exclude: [ /node_modules/ ]
       },
 
       /*
@@ -224,7 +226,7 @@ module.exports = {
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['polyfills', 'vendor'].reverse()
+      name: ['vendor', 'polyfills']
     }),
 
     /*
