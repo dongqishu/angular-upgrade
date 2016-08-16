@@ -2,30 +2,30 @@
     <div class="col-md-12">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="nav-item" ng-class="$ctrl.selectedTab === 'description' ? 'active': ''">
-                <a ng-click="$ctrl.selectedTab = 'description'" 
-                    ng-class="$ctrl.selectedTab === 'description' ? 'active': ''"
+            <li role="presentation" class="nav-item" [class]="$ctrl.selectedTab === 'description' ? 'active': ''">
+                <a (click)="$ctrl.selectedTab = 'description'" 
+                    [class]="$ctrl.selectedTab === 'description' ? 'active': ''"
                     role="tab" class="nav-link">Description</a>
             </li>
-            <li role="presentation" class="nav-item" ng-class="$ctrl.selectedTab === 'features' ? 'active': ''">
-                <a ng-click="$ctrl.selectedTab = 'features'" 
-                    ng-class="$ctrl.selectedTab === 'features' ? 'active': ''"
+            <li role="presentation" class="nav-item" [class]="$ctrl.selectedTab === 'features' ? 'active': ''">
+                <a (click)="$ctrl.selectedTab = 'features'" 
+                    [class]="$ctrl.selectedTab === 'features' ? 'active': ''"
                     role="tab" class="nav-link">Features</a>
             </li>
-            <li role="presentation" class="nav-item" ng-class="$ctrl.selectedTab === 'notes' ? 'active': ''">
-                <a ng-click="$ctrl.selectedTab = 'notes'" 
-                    ng-class="$ctrl.selectedTab === 'notes' ? 'active': ''"
+            <li role="presentation" class="nav-item" [class]="$ctrl.selectedTab === 'notes' ? 'active': ''">
+                <a (click)="$ctrl.selectedTab = 'notes'" 
+                    [class]="$ctrl.selectedTab === 'notes' ? 'active': ''"
                     role="tab" class="nav-link">Notes</a>
             </li>
-            <li role="presentation" class="nav-item" ng-class="$ctrl.selectedTab === 'reviews' ? 'active': ''">
-                <a ng-click="$ctrl.selectedTab = 'reviews'" 
-                    ng-class="$ctrl.selectedTab === 'reviews' ? 'active': ''"
+            <li role="presentation" class="nav-item" [class]="$ctrl.selectedTab === 'reviews' ? 'active': ''">
+                <a (click)="$ctrl.selectedTab = 'reviews'" 
+                    [class]="$ctrl.selectedTab === 'reviews' ? 'active': ''"
                     role="tab" class="nav-link">Reviews</a>
             </li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" ng-class="$ctrl.selectedTab === 'description' ? 'active': ''" class="tab-pane" id="description">
+            <div role="tabpanel" [class]="$ctrl.selectedTab === 'description' ? 'active': ''" class="tab-pane" id="description">
                 <p class="top-10">
                     {{ $ctrl.product.longDescription }}
                 </p>
@@ -33,15 +33,15 @@
                     <small>(source <a ng-href="$ctrl.product.sourceUrl">{{ $ctrl.product.sourceUrl }}</a>)</small>
                 </p>
             </div>
-            <div role="tabpanel" ng-class="$ctrl.selectedTab === 'features' ? 'active': ''" class="tab-pane top-10" id="features">
+            <div role="tabpanel" [class]="$ctrl.selectedTab === 'features' ? 'active': ''" class="tab-pane top-10" id="features">
                 <ul>
-                    <li ng-repeat="feature in $ctrl.product.features">{{ feature }}</li>
+                    <li *ngRepeat="feature in $ctrl.product.features">{{ feature }}</li>
                 </ul>
             </div>
-            <div role="tabpanel" ng-class="$ctrl.selectedTab === 'notes' ? 'active': ''" class="tab-pane" id="notes">
+            <div role="tabpanel" [class]="$ctrl.selectedTab === 'notes' ? 'active': ''" class="tab-pane" id="notes">
                 <p>Notes</p>
             </div>
-            <div role="tabpanel" ng-class="$ctrl.selectedTab === 'reviews' ? 'active': ''" class="tab-pane" id="reviews">
+            <div role="tabpanel" [class]="$ctrl.selectedTab === 'reviews' ? 'active': ''" class="tab-pane" id="reviews">
                 <p>Reviews</p>
             </div>
         </div>

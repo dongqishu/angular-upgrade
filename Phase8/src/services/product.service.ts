@@ -1,8 +1,10 @@
 import { Product } from './../model/product.ts';
+import { Injectable, Inject } from 'ng-metadata/core';
 import { IQService } from 'angular';
 
+@Injectable()
 export class ProductService {
-    constructor(public $q: IQService){}
+    constructor(@Inject('$q') private $q: IQService){}
 
     public getProducts() { 
         return this.$q.when<Array<any>>(products);
