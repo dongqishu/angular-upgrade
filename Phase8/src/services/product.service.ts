@@ -1,20 +1,20 @@
-import { Product } from './../model/product.ts';
-import { Injectable, Inject } from 'ng-metadata/core';
-import { IQService } from 'angular';
+import { Product } from "./../model/product.ts";
+import { Injectable, Inject } from "ng-metadata/core";
+import { IQService } from "angular";
 
 @Injectable()
 export class ProductService {
-    constructor(@Inject('$q') private $q: IQService){}
+    constructor(@Inject("$q") private $q: IQService) {}
 
-    public getProducts() { 
+    public getProducts() {
         return this.$q.when<Array<any>>(products);
     }
 
-    public getProductById(id: number){
+    public getProductById(id: number) {
         return this.$q.when<Product>(product);
     }
 
-    public rateProduct(id: number, stars: number): void{
+    public rateProduct(id: number, stars: number): void {
         console.log("Call API to rate product ID " + id + ", Stars: " + stars);
         // call api here to rate product
     }
@@ -48,7 +48,7 @@ const product = {
         "Weight: 420 g"
     ],
     "imageUrl": "assets/camera-1248682_640.jpg"
-}
+};
 
 const products = [{
         "id": 1,

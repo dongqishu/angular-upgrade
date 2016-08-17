@@ -1,18 +1,18 @@
-<div class="container" id="product-section" *ngIf="$ctrl.productLoaded">
+<div class="container" id="product-section" ng-if="$ctrl.productLoaded">
     <div class="row">
         <div class="col-md-6">
-            <img [src]="$ctrl.product.imageUrl" class="img-responsive" />
+            <img ng-src="{{ $ctrl.product.imageUrl }}" class="img-responsive" />
         </div>
         <div class="col-md-6">
             <app-product-description [product]="$ctrl.product"></app-product-description>
-            <app-reviews [reviews]="$ctrl.product.reviews" (on-rate)="$ctrl.rateProduct(stars)"></app-reviews>
+            <app-reviews [reviews]="$ctrl.product.reviews" (on-rate)="$ctrl.rateProduct($event)"></app-reviews>
             <div class="row">
                 <div class="col-md-12 bottom-rule">
                     <h2 class="product-price">{{ $ctrl.product.price | currency }}</h2>
                 </div>
             </div>
             <div class="row add-to-cart">
-                <app-quantity (on-quantity-changed)="$ctrl.quantityChanged(quantity)"></app-quantity>
+                <app-quantity (on-quantity-changed)="$ctrl.quantityChanged($event)"></app-quantity>
                 <div class="col-md-4">
                     <button class="btn btn-lg btn-brand btn-full-width" (click)="$ctrl.addToCart()">Add to Cart</button>
                 </div>

@@ -13,9 +13,9 @@ export class ProductComponent implements OnInit {
     productLoaded: boolean;
     quantity: number;
 
-    constructor(private ProductService: ProductService, 
-                @Inject('$stateParams') private $stateParams: IStateParamsService, 
-                @Inject('$location') private $location: ILocationService){}
+    constructor(@Inject('$stateParams') private $stateParams: IStateParamsService, 
+                @Inject('$location') private $location: ILocationService,
+                private ProductService: ProductService){}
 
     ngOnInit() {
         this.product = new Product();
@@ -36,7 +36,7 @@ export class ProductComponent implements OnInit {
         console.log('add to cart product id ' + this.product.id + ', quantity: ' + this.quantity);
     }
 
-    rateProduct(starNum: number): void {
+    rateProduct(starNum): void {
         console.log("Rating product " + starNum + " stars.");
         this.product.reviews.myRating = starNum;
         this.ProductService.rateProduct(this.product.id, starNum);

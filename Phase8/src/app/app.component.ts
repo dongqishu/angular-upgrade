@@ -4,7 +4,7 @@ import { Component } from 'ng-metadata/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',
+  template: require('./app.component.html'),
   directives: [AppComponents],
   providers: [AppProviders]
 })
@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(){}
 
   ngOnInit() {
-    console.log( 'hello from AppComponent during OnInit' );
+    console.log('hello from AppComponent during OnInit' );
   }
 }
 

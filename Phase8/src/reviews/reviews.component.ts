@@ -15,7 +15,7 @@ export class ReviewsComponent implements OnInit {
     ngOnInit(){
         this.hoveringOver = 0;
     }
-    
+
     starHover(starNum: number): void {
         console.log("star hover " + starNum);
         this.hoveringOver = starNum;
