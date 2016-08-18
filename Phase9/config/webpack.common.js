@@ -1,3 +1,4 @@
+
 /**
  * @author: @AngularClass
  */
@@ -12,13 +13,13 @@ const helpers = require('./helpers');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-const HtmlElementsPlugin = require('./html-elements-plugin');
+// const HtmlElementsPlugin = require('./html-elements-plugin');
 
 /*
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Angular 2 Upgrade',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -54,9 +55,9 @@ module.exports = {
    */
   entry: {
 
-    'polyfills': './src/polyfills.browser.ts',
-    'vendor':    './src/vendor.browser.ts',
-    'main':      './src/main.browser.ts'
+    'polyfills': './src/polyfills.ts',
+    'vendor':    './src/vendor.ts',
+    'main':      './src/main.ts'
 
   },
 
@@ -91,17 +92,19 @@ module.exports = {
 
     /*
      * An array of applied pre and post loaders.
-     *
      * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
      */
     preLoaders: [
 
       /*
        * Tslint loader support for *.ts files
-       *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        exclude: [ /node_modules/ ]
+      },
 
       /*
        * Source map loader support for *.js files
@@ -114,10 +117,11 @@ module.exports = {
         loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
+          helpers.root('node_modules/ng-metadata'),
           helpers.root('node_modules/rxjs'),
           helpers.root('node_modules/@angular'),
-          helpers.root('node_modules/@ngrx'),
-          helpers.root('node_modules/@angular2-material'),
+        //   helpers.root('node_modules/@ngrx'),
+        //   helpers.root('node_modules/@angular2-material'),
         ]
       }
 
@@ -142,8 +146,9 @@ module.exports = {
        */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
-        exclude: [/\.(spec|e2e)\.ts$/]
+        loaders: ['awesome-typescript-loader'],
+        // loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        exclude: [ /node_modules/ ]
       },
 
       /*
@@ -161,10 +166,11 @@ module.exports = {
        * Returns file content as string
        *
        */
-      {
-        test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
-      },
+      { test: /\.css$/, loader: 'style!css' },
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['to-string-loader', 'css-loader']
+      // },
 
       /* Raw loader support for *.html
        * Returns file content as string
@@ -221,7 +227,7 @@ module.exports = {
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['polyfills', 'vendor'].reverse()
+      name: ['vendor', 'polyfills']
     }),
 
     /*
@@ -272,9 +278,9 @@ module.exports = {
      *
      * Dependencies: HtmlWebpackPlugin
      */
-    new HtmlElementsPlugin({
-      headTags: require('./head-config.common')
-    }),
+    // new HtmlElementsPlugin({
+    //   headTags: require('./head-config.common')
+    // }),
 
   ],
 
