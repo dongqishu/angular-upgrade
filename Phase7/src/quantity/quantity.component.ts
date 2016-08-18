@@ -12,6 +12,7 @@ export class QuantityController implements IComponentController {
     }
 
     decreaseQuantity(): void {
+        if (this.quantity === 1) return;
         this.quantity--;
         this.onQuantityChanged({ quantity: this.quantity });
     }
