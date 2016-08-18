@@ -1,4 +1,4 @@
-import { Product } from './../model/product.ts';
+import { Product } from './product.model.ts';
 import { ProductService } from './../services/product.service.ts';
 import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
 import { IStateParamsService } from 'angular-ui-router';

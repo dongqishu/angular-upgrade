@@ -1,5 +1,5 @@
 import { ProductService } from './../services/product.service.ts';
-import { Product } from './../model/product.ts';
+import { Product } from './../product/product.ts';
 import { IPromise } from 'angular';
 import { IStateService } from 'angular-ui-router';
 import { Component, Input, Inject, OnInit } from 'ng-metadata/core';

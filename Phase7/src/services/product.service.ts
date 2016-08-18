@@ -1,4 +1,4 @@
-import { Product } from './../model/product.ts';
+import { Product } from './../product/product.model.ts';
 import { IQService } from 'angular';
 
 export class ProductService {

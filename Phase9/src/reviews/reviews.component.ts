@@ -1,4 +1,4 @@
-import { Reviews } from './../model/reviews.ts';
+import { Reviews } from './reviews.ts';
 import { Component, Input, OnInit, Output, EventEmitter } from 'ng-metadata/core';
 
 @Component({

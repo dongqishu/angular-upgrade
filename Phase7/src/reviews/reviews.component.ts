@@ -1,4 +1,4 @@
-import { Reviews } from './../model/reviews.ts';
+import { Reviews } from './reviews.model.ts';
 import { IComponentController, IComponentOptions } from 'angular';
 
 export class ReviewsController implements IComponentController {

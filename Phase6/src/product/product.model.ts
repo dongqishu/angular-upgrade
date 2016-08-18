@@ -1,6 +1,4 @@
-import { Reviews } from './reviews.ts';
-
-export class Product {
+class Product {
     public id: number;
     public name: string;
     public tag: string;

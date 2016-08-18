@@ -1,4 +1,4 @@
-import { Product } from './../model/product.ts';
+import { Product } from './../product/product.ts';
 import { Component, Input, OnInit } from 'ng-metadata/core';
 import './product-tabs.component.css';
 

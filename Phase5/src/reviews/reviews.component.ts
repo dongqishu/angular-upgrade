@@ -1,6 +1,6 @@
 class ReviewsController {
     hoveringOver: number;
-    reviews: ProductReview;
+    reviews: Reviews;
 
     constructor(){
         console.log('reviews constructor');

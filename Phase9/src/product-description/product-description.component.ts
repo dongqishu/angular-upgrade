@@ -1,4 +1,4 @@
-import { Product } from './../model/product.ts';
+import { Product } from './../product/product.ts';
 import { Component, Input } from 'ng-metadata/core';
 
 @Component({

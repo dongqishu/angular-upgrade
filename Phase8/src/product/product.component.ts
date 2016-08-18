@@ -1,4 +1,4 @@
-import { Product } from './../model/product.ts';
+import { Product } from './product.model.ts';
 import { ProductService } from './../services/product.service.ts';
 import { Component, Inject, OnInit } from 'ng-metadata/core';
 import { ILocationService } from 'angular';
