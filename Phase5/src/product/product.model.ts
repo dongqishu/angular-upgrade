@@ -3,7 +3,7 @@ class Product {
     public name: string;
     public tag: string;
     public description: string;
-    public reviews: ProductReview;
+    public reviews: Reviews;
     public price: number;
     public longDescription: string;
     public sourceUrl: string;
