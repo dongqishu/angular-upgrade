@@ -1,20 +1,21 @@
 import { Reviews } from "./reviews.model";
-import { IComponentController, IComponentOptions } from "angular";
+import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
 
-export class ReviewsController implements IComponentController {
+@Component({
+    selector: "app-reviews",
+    templateUrl: "./reviews/reviews.component.html"
+})
+export class ReviewsComponent implements OnInit {
     hoveringOver: number;
-    reviews: Reviews;
+    @Input() reviews: Reviews;
+    @Output() onRate = new EventEmitter<number>();
 
-    constructor(){
-        console.log("reviews constructor");
-    }
+    constructor() {}
 
-    $onInit(){
+    ngOnInit() {
         this.hoveringOver = 0;
-        console.log("reviews init");
-        console.log(this.reviews);
     }
-    
+
     starHover(starNum: number): void {
         console.log("star hover " + starNum);
         this.hoveringOver = starNum;
@@ -28,9 +29,9 @@ export class ReviewsController implements IComponentController {
     }
 
     hasStar(starNum: number): boolean {
-        if ((starNum <= this.reviews.stars && this.reviews.myRating === null) 
-        || starNum <= this.hoveringOver || 
-        (starNum <= this.reviews.myRating && this.hoveringOver === 0)){
+        if ((starNum <= this.reviews.stars && this.reviews.myRating === null)
+        || starNum <= this.hoveringOver ||
+        (starNum <= this.reviews.myRating && this.hoveringOver === 0)) {
             return true;
         }
         return false;
@@ -39,20 +40,5 @@ export class ReviewsController implements IComponentController {
     starExit(): void {
         console.log("star exit");
         this.hoveringOver = 0;
-    }
-}
-
-export class ReviewsComponent implements IComponentOptions {
-    bindings: any;
-    controller:IComponentController;
-    templateUrl:string;
-
-    constructor() {
-        this.templateUrl = "./reviews/reviews.component.html";
-        this.controller = ReviewsController;
-        this.bindings = {
-            reviews: "<",
-            onRate: "&"
-        }
     }
 }

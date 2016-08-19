@@ -1,4 +1,7 @@
-class QuantityController {
+import { IComponentController, IComponentOptions } from "angular";
+import "./quantity.component.css";
+
+export class QuantityController implements IComponentController {
     quantity: number;
     onQuantityChanged: any;
 
@@ -9,6 +12,7 @@ class QuantityController {
     }
 
     decreaseQuantity(): void {
+        if (this.quantity === 1) return;
         this.quantity--;
         this.onQuantityChanged({ quantity: this.quantity });
     }
@@ -19,12 +23,16 @@ class QuantityController {
     }
 }
 
-angular
-    .module('app')
-    .component('appQuantity', {
-        templateUrl: 'src/quantity/quantity.component.html',
-        controller: QuantityController,
-        bindings: {
-            onQuantityChanged: '&'
+export class QuantityComponent implements IComponentOptions {
+    bindings: any;
+    controller:IComponentController;
+    templateUrl:string;
+
+    constructor() {
+        this.templateUrl = "./quantity/quantity.component.html";
+        this.controller = QuantityController;
+        this.bindings = {
+            onQuantityChanged: "&"
         }
-    });
+    }
+}

@@ -1,4 +1,6 @@
-class Product {
+import { Reviews } from "./../reviews/reviews.model";
+
+export class Product {
     public id: number;
     public name: string;
     public tag: string;

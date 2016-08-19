@@ -1,38 +1,28 @@
-import { IComponentController, IComponentOptions } from "angular";
+import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
 import "./quantity.component.css";
 
-export class QuantityController implements IComponentController {
+@Component({
+    selector: "app-quantity",
+    templateUrl: "./quantity/quantity.component.html"
+})
+export class QuantityComponent implements OnInit {
     quantity: number;
-    onQuantityChanged: any;
+    @Output() onQuantityChanged = new EventEmitter<number>();
 
-    constructor(){}
+    constructor() {}
 
-    $onInit() {
+    ngOnInit() {
         this.quantity = 1;
     }
 
     decreaseQuantity(): void {
         if (this.quantity === 1) return;
         this.quantity--;
-        this.onQuantityChanged({ quantity: this.quantity });
+        this.onQuantityChanged.emit(this.quantity);
     }
 
     increaseQuantity(): void {
         this.quantity++;
-        this.onQuantityChanged({ quantity: this.quantity });
-    }
-}
-
-export class QuantityComponent implements IComponentOptions {
-    bindings: any;
-    controller:IComponentController;
-    templateUrl:string;
-
-    constructor() {
-        this.templateUrl = "./quantity/quantity.component.html";
-        this.controller = QuantityController;
-        this.bindings = {
-            onQuantityChanged: "&"
-        }
+        this.onQuantityChanged.emit(this.quantity);
     }
 }

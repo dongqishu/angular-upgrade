@@ -1,11 +1,11 @@
-import { upgradeAdapter } from "./upgradeAdapter";
+import { bootstrap } from "ng-metadata/platform-browser-dynamic";
 import * as uiRouter from "angular-ui-router";
 import { AppComponent } from "./app/app.component";
 import { provideState } from "./app.routes";
-import { enableProdMode } from "@angular/core";
+import { enableProdMode } from "ng-metadata/core";
 
 if ( ENV === "production" ) {
   enableProdMode();
 }
 
-upgradeAdapter.bootstrap( AppComponent, [uiRouter, provideState] );
+bootstrap( AppComponent, [uiRouter, provideState]);

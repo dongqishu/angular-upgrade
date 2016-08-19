@@ -1,26 +1,34 @@
-class ProductListController {
+import { ProductService } from "./../services/product.service";
+import { Product } from "./../product/product.model";
+import { IComponentController, IComponentOptions, IPromise } from "angular";
+import { IStateService } from "angular-ui-router";
+
+export class ProductListController implements IComponentController {
     products: Array<Product>;
 
-    constructor(private $location: ng.ILocationService, 
+    constructor(private $state: IStateService,
                 private ProductService: ProductService) {}
 
     $onInit() {
         this.products = new Array<Product>();
 
         this.ProductService.getProducts()
-            .then((res: ng.IHttpPromiseCallbackArg<Array<Product>>) => {
-                this.products = res.data;
+            .then((res: any) => {
+                this.products = res;
             }, error => console.log(error));
     } 
     
     selectProduct(product){
-        this.$location.path('/product/' + product.id);
+        this.$state.go("productDetails", { id: product.id });
     }
 } 
 
-angular
-    .module('app')
-    .component('appProductList', {
-        templateUrl: '/src/product-list/product-list.component.html',
-        controller: ProductListController
-    });
+export class ProductListComponent implements IComponentOptions {
+    public controller:IComponentController;
+    public templateUrl:string;
+
+    constructor() {
+        this.templateUrl = "./product-list/product-list.component.html";
+        this.controller = ProductListController;
+    }
+}

@@ -12,8 +12,7 @@
         var ctrl = this;
 
         ctrl.$onInit = init;
-        ctrl.decreaseQuantity = decreaseQuantity;
-        ctrl.increaseQuantity = increaseQuantity;
+        ctrl.quantityChanged = quantityChanged;
         ctrl.addToCart = addToCart;
         ctrl.rateProduct = rateProduct;
 
@@ -22,19 +21,13 @@
             ProductService.getProductById($routeParams.id)
                 .then(res => {
                     ctrl.product = res.data;
-                    ctrl.product.quantity = 1;
-                    ctrl.product.selectedTab = 'description';
+                    ctrl.quantity = 1;
                     ctrl.productLoaded = true;
                 }, error => console.log(error));
         }
 
-        function decreaseQuantity(product){
-            if (product.quantity <= 1) return;
-            product.quantity--;
-        }
-
-        function increaseQuantity(product){
-            product.quantity++;
+        function quantityChanged(quantity) {
+            ctrl.quantity = quantity;
         }
 
         function addToCart(product){

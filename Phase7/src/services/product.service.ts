@@ -1,14 +1,16 @@
 import { Product } from "./../product/product.model";
+import { Injectable, Inject } from "ng-metadata/core";
 import { IQService } from "angular";
 
+@Injectable()
 export class ProductService {
-    constructor(public $q: IQService) {}
+    constructor(@Inject("$q") private $q: IQService) {}
 
-    public getProducts() { 
+    public getProducts() {
         return this.$q.when<Array<any>>(products);
     }
 
-    public getProductById(id: number){
+    public getProductById(id: number) {
         return this.$q.when<Product>(product);
     }
 
@@ -46,7 +48,7 @@ const product = {
         "Weight: 420 g"
     ],
     "imageUrl": "assets/camera-1248682_640.jpg"
-}
+};
 
 const products = [{
         "id": 1,

@@ -2,7 +2,6 @@ class ProductController {
     product: Product;
     productLoaded: boolean;
     quantity: number;
-    selectedTab: string;
 
     constructor(private ProductService: ProductService, 
                 private $routeParams: ng.route.IRouteParamsService, 
@@ -15,18 +14,12 @@ class ProductController {
             .then((res: ng.IHttpPromiseCallbackArg<Product>) => {
                 this.product = res.data;
                 this.quantity = 1;
-                this.selectedTab = 'description';
                 this.productLoaded = true;
             }, error => console.log(error));
     }
 
-    decreaseQuantity(): void {
-        if (this.quantity <= 1) return;
-        this.quantity--;
-    }
-
-    increaseQuantity(): void {
-        this.quantity++;
+    quantityChanged(quantity): void {
+        this.quantity = quantity;
     }
 
     addToCart(): void {

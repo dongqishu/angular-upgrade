@@ -1,18 +1,23 @@
-class ProductController {
+import { Product } from "./product.model";
+import { ProductService } from "./../services/product.service";
+import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from "angular";
+import { IStateParamsService } from "angular-ui-router";
+
+export class ProductController implements IComponentController {
     product: Product;
     productLoaded: boolean;
     quantity: number;
 
     constructor(private ProductService: ProductService, 
-                private $routeParams: ng.route.IRouteParamsService, 
-                private $location: ng.ILocationService){}
+                private $stateParams: IStateParamsService, 
+                private $location: ILocationService){}
 
     $onInit() {
         this.product = new Product();
-        const id = this.$routeParams['id'];
+        const id = this.$stateParams["id"];
         this.ProductService.getProductById(id)
-            .then((res: ng.IHttpPromiseCallbackArg<Product>) => {
-                this.product = res.data;
+            .then((res: any) => {
+                this.product = res;
                 this.quantity = 1;
                 this.productLoaded = true;
             }, error => console.log(error));
@@ -23,7 +28,7 @@ class ProductController {
     }
 
     addToCart(): void {
-        console.log('add to cart product id ' + this.product.id + ', quantity: ' + this.quantity);
+        console.log("add to cart product id " + this.product.id + ", quantity: " + this.quantity);
     }
 
     rateProduct(starNum: number): void {
@@ -33,9 +38,12 @@ class ProductController {
     }
 }
 
-angular
-    .module('app')
-    .component('appProduct', {
-        templateUrl: 'src/product/product.component.html',
-        controller: ProductController
-    });
+export class ProductComponent implements IComponentOptions {
+    public controller:ng.IComponentController;
+    public templateUrl:string;
+
+    constructor() {
+        this.templateUrl = "./product/product.component.html";
+        this.controller = ProductController;
+    }
+}

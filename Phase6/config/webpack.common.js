@@ -55,9 +55,9 @@ module.exports = {
    */
   entry: {
 
-    'polyfills': './src/polyfills.ts',
-    'vendor':    './src/vendor.ts',
-    'main':      './src/main.ts'
+    // 'polyfills': './src/polyfills.browser.ts',
+    // 'vendor':    './src/vendor.browser.ts',
+    'main':      './src/app.ts'
 
   },
 
@@ -92,19 +92,17 @@ module.exports = {
 
     /*
      * An array of applied pre and post loaders.
+     *
      * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
      */
     preLoaders: [
 
       /*
        * Tslint loader support for *.ts files
+       *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-      {
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: [ 'node_modules' ]
-      },
+       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
       /*
        * Source map loader support for *.js files
@@ -117,9 +115,10 @@ module.exports = {
         loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
-          helpers.root('node_modules/ng-metadata'),
-          helpers.root('node_modules/rxjs'),
-          helpers.root('node_modules/@angular')
+        //   helpers.root('node_modules/rxjs'),
+        //   helpers.root('node_modules/@angular'),
+        //   helpers.root('node_modules/@ngrx'),
+        //   helpers.root('node_modules/@angular2-material'),
         ]
       }
 
@@ -146,7 +145,7 @@ module.exports = {
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader'],
         // loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
-        exclude: [ /node_modules/ ]
+        exclude: [/\.(spec|e2e)\.ts$/]
       },
 
       /*
@@ -224,9 +223,9 @@ module.exports = {
      * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'polyfills']
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: ['polyfills', 'vendor'].reverse()
+    // }),
 
     /*
      * Plugin: CopyWebpackPlugin
