@@ -1,7 +1,7 @@
-import { Product } from './product.model.ts';
-import { ProductService } from './../services/product.service.ts';
-import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from 'angular';
-import { IStateParamsService } from 'angular-ui-router';
+import { Product } from "./product.model";
+import { ProductService } from "./../services/product.service";
+import { IComponentController, IComponentOptions, ILocationService, IHttpPromiseCallbackArg } from "angular";
+import { IStateParamsService } from "angular-ui-router";
 
 export class ProductController implements IComponentController {
     product: Product;
@@ -14,7 +14,7 @@ export class ProductController implements IComponentController {
 
     $onInit() {
         this.product = new Product();
-        const id = this.$stateParams['id'];
+        const id = this.$stateParams["id"];
         this.ProductService.getProductById(id)
             .then((res: any) => {
                 this.product = res;
@@ -28,7 +28,7 @@ export class ProductController implements IComponentController {
     }
 
     addToCart(): void {
-        console.log('add to cart product id ' + this.product.id + ', quantity: ' + this.quantity);
+        console.log("add to cart product id " + this.product.id + ", quantity: " + this.quantity);
     }
 
     rateProduct(starNum: number): void {
@@ -43,7 +43,7 @@ export class ProductComponent implements IComponentOptions {
     public templateUrl:string;
 
     constructor() {
-        this.templateUrl = './product/product.component.html';
+        this.templateUrl = "./product/product.component.html";
         this.controller = ProductController;
     }
 }

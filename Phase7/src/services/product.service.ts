@@ -1,8 +1,8 @@
-import { Product } from './../product/product.model.ts';
-import { IQService } from 'angular';
+import { Product } from "./../product/product.model";
+import { IQService } from "angular";
 
 export class ProductService {
-    constructor(public $q: IQService){}
+    constructor(public $q: IQService) {}
 
     public getProducts() { 
         return this.$q.when<Array<any>>(products);
@@ -12,7 +12,7 @@ export class ProductService {
         return this.$q.when<Product>(product);
     }
 
-    public rateProduct(id: number, stars: number): void{
+    public rateProduct(id: number, stars: number): void {
         console.log("Call API to rate product ID " + id + ", Stars: " + stars);
         // call api here to rate product
     }

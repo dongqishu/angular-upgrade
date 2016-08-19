@@ -1,7 +1,7 @@
-import { ProductService } from './../services/product.service.ts';
-import { Product } from './../model/product.ts';
-import { IComponentController, IComponentOptions, IPromise } from 'angular';
-import { IStateService } from 'angular-ui-router';
+import { ProductService } from "./../services/product.service";
+import { Product } from "./../product/product.model";
+import { IComponentController, IComponentOptions, IPromise } from "angular";
+import { IStateService } from "angular-ui-router";
 
 export class ProductListController implements IComponentController {
     products: Array<Product>;
@@ -19,7 +19,7 @@ export class ProductListController implements IComponentController {
     } 
     
     selectProduct(product){
-        this.$state.go('productDetails', { id: product.id });
+        this.$state.go("productDetails", { id: product.id });
     }
 } 
 
@@ -28,7 +28,7 @@ export class ProductListComponent implements IComponentOptions {
     public templateUrl:string;
 
     constructor() {
-        this.templateUrl = './product-list/product-list.component.html';
+        this.templateUrl = "./product-list/product-list.component.html";
         this.controller = ProductListController;
     }
 }

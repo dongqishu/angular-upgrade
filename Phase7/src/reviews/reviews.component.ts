@@ -1,17 +1,17 @@
-import { Reviews } from './reviews.model.ts';
-import { IComponentController, IComponentOptions } from 'angular';
+import { Reviews } from "./reviews.model";
+import { IComponentController, IComponentOptions } from "angular";
 
 export class ReviewsController implements IComponentController {
     hoveringOver: number;
     reviews: Reviews;
 
     constructor(){
-        console.log('reviews constructor');
+        console.log("reviews constructor");
     }
 
     $onInit(){
         this.hoveringOver = 0;
-        console.log('reviews init');
+        console.log("reviews init");
         console.log(this.reviews);
     }
     
@@ -48,7 +48,7 @@ export class ReviewsComponent implements IComponentOptions {
     templateUrl:string;
 
     constructor() {
-        this.templateUrl = './reviews/reviews.component.html';
+        this.templateUrl = "./reviews/reviews.component.html";
         this.controller = ReviewsController;
         this.bindings = {
             reviews: "<",

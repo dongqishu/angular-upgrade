@@ -1,4 +1,4 @@
-import { Reviews } from './../reviews/reviews.model';
+import { Reviews } from "./../reviews/reviews.model";
 
 export class Product {
     public id: number;

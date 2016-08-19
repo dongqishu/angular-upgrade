@@ -1,5 +1,5 @@
-import { Product } from './../model/product.ts';
-import { IComponentController, IComponentOptions } from 'angular';
+import { Product } from "./../product/product.model";
+import { IComponentController, IComponentOptions } from "angular";
 
 export class ProductDescriptionController implements ng.IComponentController {
     product: Product;
@@ -15,7 +15,7 @@ export class ProductDescriptionComponent implements ng.IComponentOptions {
     public templateUrl:string;
 
     constructor() {
-        this.templateUrl = './product-description/product-description.component.html';
+        this.templateUrl = "./product-description/product-description.component.html";
         this.controller = ProductDescriptionController;
         this.bindings = {
             product: "<"

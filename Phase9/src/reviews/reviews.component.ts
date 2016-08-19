@@ -1,18 +1,18 @@
-import { Reviews } from './reviews.ts';
-import { Component, Input, OnInit, Output, EventEmitter } from 'ng-metadata/core';
+import { Reviews } from "./reviews.model";
+import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
 
 @Component({
-    selector: 'app-reviews',
-    templateUrl: './reviews/reviews.component.html'
+    selector: "app-reviews",
+    templateUrl: "./reviews/reviews.component.html"
 })
 export class ReviewsComponent implements OnInit {
     hoveringOver: number;
     @Input() reviews: Reviews;
-    @Output() onRate = new EventEmitter<number>()
+    @Output() onRate = new EventEmitter<number>();
 
-    constructor(){}
+    constructor() {}
 
-    ngOnInit(){
+    ngOnInit() {
         this.hoveringOver = 0;
     }
 
@@ -29,9 +29,9 @@ export class ReviewsComponent implements OnInit {
     }
 
     hasStar(starNum: number): boolean {
-        if ((starNum <= this.reviews.stars && this.reviews.myRating === null) 
-        || starNum <= this.hoveringOver || 
-        (starNum <= this.reviews.myRating && this.hoveringOver === 0)){
+        if ((starNum <= this.reviews.stars && this.reviews.myRating === null)
+        || starNum <= this.hoveringOver ||
+        (starNum <= this.reviews.myRating && this.hoveringOver === 0)) {
             return true;
         }
         return false;
