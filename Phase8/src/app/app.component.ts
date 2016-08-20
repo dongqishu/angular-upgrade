@@ -1,6 +1,6 @@
 import { AppComponents } from "./../bootstrap";
 import { AppProviders } from "./../bootstrap";
-import { Component } from "ng-metadata/core";
+import { Component, OnInit } from "ng-metadata/core";
 
 @Component({
   selector: "my-app",
@@ -8,7 +8,7 @@ import { Component } from "ng-metadata/core";
   directives: [AppComponents],
   providers: [AppProviders]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
