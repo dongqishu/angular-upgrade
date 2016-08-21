@@ -11,7 +11,8 @@ import { Component, Input, Inject, OnInit } from "ng-metadata/core";
 export class ProductListComponent implements OnInit {
     products: Array<Product>;
 
-    constructor(@Inject("$state") private $state: IStateService, private ProductService: ProductService) {}
+    constructor(@Inject("$state") private $state: IStateService,
+                private ProductService: ProductService) {}
 
     ngOnInit() {
         this.products = new Array<Product>();

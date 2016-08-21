@@ -4,14 +4,14 @@ import { IQService } from "angular";
 
 @Injectable()
 export class ProductService {
-    constructor(@Inject("$q") private $q: IQService) {}
+    constructor() {}
 
     public getProducts() {
-        return this.$q.when<Array<any>>(products);
+        return Promise.resolve(products);
     }
 
     public getProductById(id: number) {
-        return this.$q.when<Product>(product);
+        return Promise.resolve(product);
     }
 
     public rateProduct(id: number, stars: number): void {

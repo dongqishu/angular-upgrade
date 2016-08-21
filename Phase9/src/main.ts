@@ -8,4 +8,5 @@ if ( ENV === "production" ) {
   enableProdMode();
 }
 
+// .directive( ...upgradeAdapter.downgradeNg2Component( Ng2Component ) );
 upgradeAdapter.bootstrap( AppComponent, [uiRouter, provideState] );

@@ -1,5 +1,5 @@
 import { Reviews } from "./reviews.model";
-import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
     selector: "app-reviews",
