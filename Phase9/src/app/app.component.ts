@@ -1,5 +1,6 @@
 import { AppComponents } from "./../bootstrap";
 import { AppProviders } from "./../bootstrap";
+import { FORM_PROVIDERS } from '@angular/forms';
 import { Component, OnInit } from "ng-metadata/core";
 
 @Component({

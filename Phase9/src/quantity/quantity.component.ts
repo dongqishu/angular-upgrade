@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
-import "./quantity.component.css";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { FORM_DIRECTIVES } from "@angular/forms";
 
 @Component({
     selector: "app-quantity",
-    templateUrl: "./quantity/quantity.component.html"
+    templateUrl: "./quantity/quantity.component.html",
 })
 export class QuantityComponent implements OnInit {
     quantity: number;

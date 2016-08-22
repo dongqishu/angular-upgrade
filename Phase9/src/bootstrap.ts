@@ -11,14 +11,13 @@ import { OpaqueToken } from "ng-metadata/core";
 // services
 import { ProductService } from "./services/product.service";
 const productServiceToken = new OpaqueToken("ProductService");
-// upgradeAdapter.addProvider(ProductService);
 
 export const AppComponents = [
     ProductComponent,
     ProductDescriptionComponent,
     ProductListComponent,
     ProductTabsComponent,
-    QuantityComponent,
+    upgradeAdapter.provideNg2Component(QuantityComponent),
     upgradeAdapter.provideNg2Component(ReviewsComponent),
 ];
 

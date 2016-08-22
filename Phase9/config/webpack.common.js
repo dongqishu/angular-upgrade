@@ -144,8 +144,7 @@ module.exports = {
        */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader'],
-        // loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
         exclude: [ /node_modules/ ]
       },
 
@@ -164,11 +163,10 @@ module.exports = {
        * Returns file content as string
        *
        */
-      { test: /\.css$/, loader: 'style!css' },
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['to-string-loader', 'css-loader']
-      // },
+      {
+        test: /\.css$/,
+        loaders: ['to-string-loader', 'css-loader']
+      },
 
       /* Raw loader support for *.html
        * Returns file content as string

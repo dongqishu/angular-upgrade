@@ -1,10 +1,10 @@
 import { Product } from "./../product/product.model";
 import { Component, Input, OnInit } from "ng-metadata/core";
-import "./product-tabs.component.css";
 
 @Component({
     selector: "app-product-tabs",
-    templateUrl: "./product-tabs/product-tabs.component.html"
+    templateUrl: "./product-tabs/product-tabs.component.html",
+    styleUrls: ["./product-tabs/product-tabs.component.css"]
 })
 export class ProductTabsComponent implements OnInit {
     @Input() product: Product;
