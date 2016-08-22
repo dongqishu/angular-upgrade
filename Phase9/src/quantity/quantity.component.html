@@ -1,13 +1,12 @@
-
 <div class="col-md-5 product-qty">
     <span class="btn btn-default btn-lg btn-qty" (click)="increaseQuantity()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </span>
     <input class="btn btn-default btn-lg btn-qty" 
-           ng-model="quantity" disabled />
+           [value]="quantity" disabled />
     <span class="btn btn-default btn-lg btn-qty" 
-            ng-disabled="quantity <= 1"
-            ng-click="decreaseQuantity()">
+            [ngClass]="quantity <= 1 ? 'disabled': ''"
+            (click)="decreaseQuantity()">
         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </span>
 </div>

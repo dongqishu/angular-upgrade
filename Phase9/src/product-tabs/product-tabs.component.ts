@@ -1,5 +1,5 @@
 import { Product } from "./../product/product.model";
-import { Component, Input, OnInit } from "ng-metadata/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
     selector: "app-product-tabs",

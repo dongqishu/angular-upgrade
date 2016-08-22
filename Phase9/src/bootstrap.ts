@@ -16,7 +16,7 @@ export const AppComponents = [
     ProductComponent,
     ProductDescriptionComponent,
     ProductListComponent,
-    ProductTabsComponent,
+    upgradeAdapter.provideNg2Component(ProductTabsComponent),
     upgradeAdapter.provideNg2Component(QuantityComponent),
     upgradeAdapter.provideNg2Component(ReviewsComponent),
 ];

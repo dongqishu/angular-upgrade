@@ -4,6 +4,7 @@ import { FORM_DIRECTIVES } from "@angular/forms";
 @Component({
     selector: "app-quantity",
     templateUrl: "./quantity/quantity.component.html",
+    styleUrls: ["./quantity/quantity.component.css"]
 })
 export class QuantityComponent implements OnInit {
     quantity: number;
