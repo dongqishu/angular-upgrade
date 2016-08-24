@@ -1,6 +1,5 @@
 import { Product } from "./../product/product.model";
-import { Injectable, Inject } from "ng-metadata/core";
-import { IQService } from "angular";
+import { Injectable, Inject } from "@angular/core";
 
 @Injectable()
 export class ProductService {

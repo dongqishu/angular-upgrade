@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
     products: Array<Product>;
 
     constructor(@Inject("$state") private $state: IStateService,
-                private ProductService: ProductService) {}
+                @Inject("ProductService") private ProductService: ProductService) {}
 
     ngOnInit() {
         this.products = new Array<Product>();

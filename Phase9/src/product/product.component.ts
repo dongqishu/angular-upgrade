@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
 
     constructor(@Inject("$stateParams") private $stateParams: IStateParamsService,
                 @Inject("$location") private $location: ILocationService,
-                private ProductService: ProductService) {}
+                @Inject("ProductService") private ProductService: ProductService) {}
 
     ngOnInit() {
         this.product = new Product();
