@@ -1,0 +1,12 @@
+<div class="col-md-5 product-qty">
+    <span class="btn btn-default btn-lg btn-qty" (click)="increaseQuantity()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </span>
+    <input class="btn btn-default btn-lg btn-qty" 
+           [value]="quantity" disabled />
+    <span class="btn btn-default btn-lg btn-qty" 
+            [ngClass]="quantity <= 1 ? 'disabled': ''"
+            (click)="decreaseQuantity()">
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    </span>
+</div>

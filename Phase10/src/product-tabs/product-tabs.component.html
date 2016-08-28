@@ -1,0 +1,49 @@
+<div class="row tabbed-product-info">
+    <div class="col-md-12">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="nav-item" [ngClass]="selectedTab === 'description' ? 'active': ''">
+                <a (click)="selectedTab = 'description'" 
+                    [ngClass]="selectedTab === 'description' ? 'active': ''"
+                    role="tab" class="nav-link">Description</a>
+            </li>
+            <li role="presentation" class="nav-item" [ngClass]="selectedTab === 'features' ? 'active': ''">
+                <a (click)="selectedTab = 'features'" 
+                    [ngClass]="selectedTab === 'features' ? 'active': ''"
+                    role="tab" class="nav-link">Features</a>
+            </li>
+            <li role="presentation" class="nav-item" [ngClass]="selectedTab === 'notes' ? 'active': ''">
+                <a (click)="selectedTab = 'notes'" 
+                    [ngClass]="selectedTab === 'notes' ? 'active': ''"
+                    role="tab" class="nav-link">Notes</a>
+            </li>
+            <li role="presentation" class="nav-item" [ngClass]="selectedTab === 'reviews' ? 'active': ''">
+                <a (click)="selectedTab = 'reviews'" 
+                    [ngClass]="selectedTab === 'reviews' ? 'active': ''"
+                    role="tab" class="nav-link">Reviews</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" [ngClass]="selectedTab === 'description' ? 'active': ''" class="tab-pane" id="description">
+                <p class="top-10">
+                    {{ product.longDescription }}
+                </p>
+                <p>
+                    <small>(source <a [href]="product.sourceUrl">{{ product.sourceUrl }}</a>)</small>
+                </p>
+            </div>
+            <div role="tabpanel" [ngClass]="selectedTab === 'features' ? 'active': ''" class="tab-pane top-10" id="features">
+                <ul>
+                    <li *ngFor="let feature of product.features">{{ feature }}</li>
+                </ul>
+            </div>
+            <div role="tabpanel" [ngClass]="selectedTab === 'notes' ? 'active': ''" class="tab-pane" id="notes">
+                <p>Notes</p>
+            </div>
+            <div role="tabpanel" [ngClass]="selectedTab === 'reviews' ? 'active': ''" class="tab-pane" id="reviews">
+                <p>Reviews</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,7 @@ export class ProductListComponent implements OnInit {
     products: Array<Product>;
 
     constructor(private ProductService: ProductService,
-                @Inject("$state") private $state: IStateService) {}
+                @Inject("$state") private $state: IStateService){}
 
     ngOnInit() {
         this.products = new Array<Product>();

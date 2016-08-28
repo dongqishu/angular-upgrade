@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-3" (mouseleave)="starExit()">
+        <span *ngFor="let i of [1, 2, 3, 4, 5]" (click)="onRate.emit(i)" style="text-decoration:none; cursor: pointer;cursor: hand;">
+        <span class="glyphicon" 
+            [ngClass]="hasStar(i) ? 'glyphicon-star': 'glyphicon-star-empty'" 
+            (mouseover)="starHover(i)"
+            [ngStyle]="starStyle(i)"
+            aria-hidden="true">
+        </span>
+        </span>
+        <span class="label label-success">{{ reviews.count }}</span>
+    </div>
+</div>

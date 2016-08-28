@@ -10,7 +10,7 @@ if ( ENV === "production" ) {
 }
 
 upgradeAdapter.addProvider(ProductService);
-upgradeAdapter.upgradeNg1Provider("$state");
-upgradeAdapter.upgradeNg1Provider("$stateParams");
-upgradeAdapter.upgradeNg1Provider("$location");
+upgradeAdapter.upgradeNg1Provider('$state');
+upgradeAdapter.upgradeNg1Provider('$stateParams');
+upgradeAdapter.upgradeNg1Provider('$location');
 upgradeAdapter.bootstrap( AppComponent, [uiRouter, provideState] );

@@ -1,0 +1,34 @@
+<div class="container" id="product-section" *ngIf="productLoaded">
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="product.imageUrl" class="img-responsive" />
+        </div>
+        <div class="col-md-6">
+            <app-product-description [product]="product"></app-product-description>
+            <app-reviews [reviews]="product.reviews" (onRate)="rateProduct($event)"></app-reviews>
+            <div class="row">
+                <div class="col-md-12 bottom-rule">
+                    <h2 class="product-price">{{ product.price | currency }}</h2>
+                </div>
+            </div>
+            <div class="row add-to-cart">
+                <app-quantity (onQuantityChanged)="quantityChanged($event)"></app-quantity>
+                <div class="col-md-4">
+                    <button class="btn btn-lg btn-brand btn-full-width" (click)="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <span class="monospaced">In Stock</span>
+                </div>
+                <div class="col-md-5 text-center">
+                    <span class="monospaced">{{ product.price * quantity | currency }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 bottom-rule top-10"></div>
+            </div>
+            <app-product-tabs [product]="product"></app-product-tabs>
+        </div>
+    </div>
+</div>
