@@ -1,5 +1,5 @@
 import { Product } from "./../product/product.model";
-import { Component, Input } from "ng-metadata/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: "app-product-description",

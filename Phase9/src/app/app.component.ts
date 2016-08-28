@@ -1,7 +1,6 @@
-import { FORM_PROVIDERS } from '@angular/forms';
 import { Component, OnInit } from "ng-metadata/core";
-import { upgradeAdapter} from './../upgradeAdapter';
-import { ProductService } from './../services/product.service';
+import { upgradeAdapter} from "./../upgradeAdapter";
+import { ProductService } from "./../services/product.service";
 
 import { ProductDescriptionComponent } from "./../product-description/product-description.component";
 import { ProductComponent } from "./../product/product.component";
@@ -12,16 +11,16 @@ import { ReviewsComponent } from "./../reviews/reviews.component";
 
 
 const AppComponents = [
-    ProductComponent,
-    ProductDescriptionComponent,
-    ProductListComponent,
+    upgradeAdapter.provideNg2Component(ProductDescriptionComponent),
+    upgradeAdapter.provideNg2Component(ProductListComponent),
     upgradeAdapter.provideNg2Component(ProductTabsComponent),
     upgradeAdapter.provideNg2Component(QuantityComponent),
     upgradeAdapter.provideNg2Component(ReviewsComponent),
+    upgradeAdapter.provideNg2Component(ProductComponent)
 ];
 
 const AppProviders = [
-  upgradeAdapter.provideNg2Provider('ProductService', { useClass: ProductService } )
+  upgradeAdapter.provideNg2Provider("ProductService", { useClass: ProductService } )
 ];
 
 @Component({

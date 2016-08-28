@@ -1,6 +1,6 @@
 import { Product } from "./product.model";
 import { ProductService } from "./../services/product.service";
-import { Component, Inject, OnInit } from "ng-metadata/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { ILocationService } from "angular";
 import { IStateParamsService } from "angular-ui-router";
 
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
 
     constructor(@Inject("$stateParams") private $stateParams: IStateParamsService,
                 @Inject("$location") private $location: ILocationService,
-                @Inject("ProductService") private ProductService: ProductService) {}
+                private ProductService: ProductService) {}
 
     ngOnInit() {
         this.product = new Product();

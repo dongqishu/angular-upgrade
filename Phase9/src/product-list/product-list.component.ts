@@ -1,8 +1,7 @@
 import { ProductService } from "./../services/product.service";
 import { Product } from "./../product/product.model";
-import { IPromise } from "angular";
 import { IStateService } from "angular-ui-router";
-import { Component, Input, Inject, OnInit } from "ng-metadata/core";
+import { Component, Input, Inject, OnInit } from "@angular/core";
 
 @Component({
     selector: "app-product-list",
@@ -11,8 +10,8 @@ import { Component, Input, Inject, OnInit } from "ng-metadata/core";
 export class ProductListComponent implements OnInit {
     products: Array<Product>;
 
-    constructor(@Inject("$state") private $state: IStateService,
-                @Inject("ProductService") private ProductService: ProductService) {}
+    constructor(private ProductService: ProductService,
+                @Inject("$state") private $state: IStateService){}
 
     ngOnInit() {
         this.products = new Array<Product>();
