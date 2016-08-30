@@ -1,7 +1,7 @@
 import { ProductService } from "./../services/product.service";
 import { Product } from "./../product/product.model";
-import { IStateService } from "angular-ui-router";
 import { Component, Input, Inject, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-product-list",
@@ -11,7 +11,7 @@ export class ProductListComponent implements OnInit {
     products: Array<Product>;
 
     constructor(private ProductService: ProductService,
-                @Inject("$state") private $state: IStateService){}
+                private Router: Router) {}
 
     ngOnInit() {
         this.products = new Array<Product>();
@@ -23,6 +23,6 @@ export class ProductListComponent implements OnInit {
     }
 
     selectProduct(product) {
-        this.$state.go("productDetails", { id: product.id });
+        this.Router.navigate(["/product", product.id]);
     }
-} 
+}

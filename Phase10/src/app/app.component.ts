@@ -1,33 +1,8 @@
-import { Component, OnInit } from "ng-metadata/core";
-import { upgradeAdapter} from "./../upgradeAdapter";
-import { ProductService } from "./../services/product.service";
-
-import { ProductDescriptionComponent } from "./../product-description/product-description.component";
-import { ProductComponent } from "./../product/product.component";
-import { ProductListComponent } from "./../product-list/product-list.component";
-import { ProductTabsComponent } from "./../product-tabs/product-tabs.component";
-import { QuantityComponent } from "./../quantity/quantity.component";
-import { ReviewsComponent } from "./../reviews/reviews.component";
-
-
-const AppComponents = [
-    upgradeAdapter.provideNg2Component(ProductDescriptionComponent),
-    upgradeAdapter.provideNg2Component(ProductListComponent),
-    upgradeAdapter.provideNg2Component(ProductTabsComponent),
-    upgradeAdapter.provideNg2Component(QuantityComponent),
-    upgradeAdapter.provideNg2Component(ReviewsComponent),
-    upgradeAdapter.provideNg2Component(ProductComponent)
-];
-
-const AppProviders = [
-  upgradeAdapter.provideNg2Provider("ProductService", { useClass: ProductService } )
-];
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "my-app",
-  templateUrl: "./app/app.component.html",
-  directives: [AppComponents],
-  providers: [AppProviders]
+  templateUrl: "./app/app.component.html"
 })
 export class AppComponent implements OnInit {
   constructor() {}

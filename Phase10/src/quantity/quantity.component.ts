@@ -19,11 +19,11 @@ export class QuantityComponent implements OnInit {
     decreaseQuantity(): void {
         if (this.quantity === 1) return;
         this.quantity--;
-        this.onQuantityChanged.emit(this.quantity);
+        this.onQuantityChanged.next(this.quantity);
     }
 
     increaseQuantity(): void {
         this.quantity++;
-        this.onQuantityChanged.emit(this.quantity);
+        this.onQuantityChanged.next(this.quantity);
     }
 }

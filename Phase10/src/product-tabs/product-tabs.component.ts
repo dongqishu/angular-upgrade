@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class ProductTabsComponent implements OnInit {
     @Input() product: Product;
+
     selectedTab: string;
 
     constructor() {}

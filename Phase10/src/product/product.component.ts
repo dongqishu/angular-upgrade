@@ -1,8 +1,7 @@
 import { Product } from "./product.model";
 import { ProductService } from "./../services/product.service";
 import { Component, Inject, OnInit } from "@angular/core";
-import { ILocationService } from "angular";
-import { IStateParamsService } from "angular-ui-router";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "app-product",
@@ -13,19 +12,21 @@ export class ProductComponent implements OnInit {
     productLoaded: boolean;
     quantity: number;
 
-    constructor(@Inject("$stateParams") private $stateParams: IStateParamsService,
-                @Inject("$location") private $location: ILocationService,
-                private ProductService: ProductService) {}
+    constructor(private ProductService: ProductService,
+                private route: ActivatedRoute) {}
 
     ngOnInit() {
         this.product = new Product();
-        const id = this.$stateParams["id"];
-        this.ProductService.getProductById(id)
-            .then((res: any) => {
-                this.product = res;
-                this.quantity = 1;
-                this.productLoaded = true;
-            }, error => console.log(error));
+
+        this.route.params.subscribe(params => {
+            const id = +params["id"];
+            this.ProductService.getProductById(id)
+                .then((res: any) => {
+                    this.product = res;
+                    this.quantity = 1;
+                    this.productLoaded = true;
+                }, error => console.log(error));
+        });
     }
 
     quantityChanged(quantity): void {
