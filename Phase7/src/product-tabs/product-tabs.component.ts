@@ -1,28 +1,18 @@
-import { Product } from './../model/product.ts';
-import { IComponentController, IComponentOptions } from 'angular';
-import './product-tabs.component.css';
+import { Product } from "./../product/product.model";
+import { Component, Input, OnInit } from "ng-metadata/core";
+import "./product-tabs.component.css";
 
-export class ProductTabsController implements IComponentController {
-    product: Product;
+@Component({
+    selector: "app-product-tabs",
+    templateUrl: "./product-tabs/product-tabs.component.html"
+})
+export class ProductTabsComponent implements OnInit {
+    @Input() product: Product;
     selectedTab: string;
 
-    constructor(){}
+    constructor() {}
 
-    $onInit() {
-        this.selectedTab = 'description';
-    }
-}
-
-export class ProductTabsComponent implements IComponentOptions {
-    bindings: any;
-    controller:IComponentController;
-    templateUrl:string;
-
-    constructor() {
-        this.templateUrl = './product-tabs/product-tabs.component.html';
-        this.controller = ProductTabsController;
-        this.bindings = {
-            product: '<'
-        }
+    ngOnInit() {
+        this.selectedTab = "description";
     }
 }

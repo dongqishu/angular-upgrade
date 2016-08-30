@@ -12,11 +12,11 @@
         this.rateProduct = rateProduct;
 
         function getProducts() { 
-            return $http.get('/src/services/product-list.json');
+            return $http.get('/json/product-list.json');
         }
 
         function getProductById(id){
-            return $http.get('/src/services/product.json');
+            return $http.get('/json/product.json');
         }
 
         function rateProduct(id, stars){

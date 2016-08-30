@@ -1,7 +1,5 @@
 // Polyfills
 
-// import "ie-shim"; // Internet Explorer 9 support
-// import "core-js/es6";
 // Added parts of es6 which are necessary for your project or your browser support requirements.
 import "core-js/es6/symbol";
 import "core-js/es6/object";
@@ -39,5 +37,4 @@ if ("production" === ENV) {
   Error.stackTraceLimit = Infinity;
 
   require("zone.js/dist/long-stack-trace-zone");
-
 }

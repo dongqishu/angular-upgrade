@@ -1,8 +1,10 @@
 <html>
     <head>
         <base href="/">
-        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="main.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- base url -->
+        <base href="<%= webpackConfig.metadata.baseUrl %>">
     </head>
     <body ng-app="app">
         <nav class="navbar navbar-default">
@@ -15,30 +17,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/Products">Angular Upgrade</a>
+                <a class="navbar-brand" ui-sref="products">Angular Upgrade</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#/Products">Products</a></li>
+                    <li><a ui-sref="products">Products</a></li>
                 </ul>
             </div>
         </nav>
-        <ng-view></ng-view>
+        <div ui-view></div>
 
-        <script src="node_modules/angular/angular.min.js"></script>
-        <script src="node_modules/angular-route/angular-route.min.js"></script>
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="app.js"></script>
-        <script src="model/product.js"></script>
-        <script src="product/product.component.js"></script>
-        <script src="product-description/product-description.component.js"></script>
-        <script src="product-list/product-list.component.js"></script>
-        <script src="product-tabs/product-tabs.component.js"></script>
-        <script src="quantity/quantity.component.js"></script>
-        <script src="reviews/reviews.component.js"></script>
-        <script src="services/product.service.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<script src="dist/app.bundle.js"></script>-->
+
+        <% if (webpackConfig.metadata.isDevServer && webpackConfig.metadata.HMR !== true) { %>
+            <!-- Webpack Dev Server reload -->
+            <script src="/webpack-dev-server.js"></script>
+        <% } %>
     </body>
 </html>

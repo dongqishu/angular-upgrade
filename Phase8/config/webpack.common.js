@@ -103,7 +103,7 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'tslint-loader',
-        exclude: [ /node_modules/ ]
+        exclude: [ 'node_modules' ]
       },
 
       /*
@@ -119,9 +119,7 @@ module.exports = {
           // these packages have problems with their sourcemaps
           helpers.root('node_modules/ng-metadata'),
           helpers.root('node_modules/rxjs'),
-        //   helpers.root('node_modules/@angular'),
-        //   helpers.root('node_modules/@ngrx'),
-        //   helpers.root('node_modules/@angular2-material'),
+          helpers.root('node_modules/@angular')
         ]
       }
 

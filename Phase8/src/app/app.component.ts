@@ -1,18 +1,18 @@
-import { AppComponents } from './../bootstrap.ts';
-import { AppProviders } from './../bootstrap.ts';
-import { Component } from 'ng-metadata/core';
+import { AppComponents } from "./../bootstrap";
+import { AppProviders } from "./../bootstrap";
+import { Component, OnInit } from "ng-metadata/core";
 
 @Component({
-  selector: 'my-app',
-  template: require('./app.component.html'),
+  selector: "my-app",
+  templateUrl: "./app/app.component.html",
   directives: [AppComponents],
   providers: [AppProviders]
 })
-export class AppComponent { 
-  constructor(){}
+export class AppComponent implements OnInit {
+  constructor() {}
 
   ngOnInit() {
-    console.log('hello from AppComponent during OnInit' );
+    console.log("hello from AppComponent during OnInit" );
   }
 }
 

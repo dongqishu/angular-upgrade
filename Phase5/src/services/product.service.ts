@@ -2,11 +2,11 @@ class ProductService {
     constructor(public $http: ng.IHttpService){}
 
     public getProducts() { 
-        return this.$http.get<Array<Product>>('/src/services/product-list.json');
+        return this.$http.get<Array<Product>>('/json/product-list.json');
     }
 
     public getProductById(id: number){
-        return this.$http.get<Product>('/src/services/product.json');
+        return this.$http.get<Product>('/json/product.json');
     }
 
     public rateProduct(id: number, stars: number): void{

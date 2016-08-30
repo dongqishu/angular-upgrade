@@ -1,25 +1,25 @@
-import { Product } from './../model/product.ts';
-import { ProductService } from './../services/product.service.ts';
-import { Component, Inject, OnInit } from 'ng-metadata/core';
-import { ILocationService } from 'angular';
-import { IStateParamsService } from 'angular-ui-router';
+import { Product } from "./product.model";
+import { ProductService } from "./../services/product.service";
+import { Component, Inject, OnInit } from "@angular/core";
+import { ILocationService } from "angular";
+import { IStateParamsService } from "angular-ui-router";
 
 @Component({
-    selector: 'app-product',
-    templateUrl: './product/product.component.html'
+    selector: "app-product",
+    templateUrl: "./product/product.component.html"
 })
 export class ProductComponent implements OnInit {
     product: Product;
     productLoaded: boolean;
     quantity: number;
 
-    constructor(@Inject('$stateParams') private $stateParams: IStateParamsService, 
-                @Inject('$location') private $location: ILocationService,
-                private ProductService: ProductService){}
+    constructor(@Inject("$stateParams") private $stateParams: IStateParamsService,
+                @Inject("$location") private $location: ILocationService,
+                private ProductService: ProductService) {}
 
     ngOnInit() {
         this.product = new Product();
-        const id = this.$stateParams['id'];
+        const id = this.$stateParams["id"];
         this.ProductService.getProductById(id)
             .then((res: any) => {
                 this.product = res;
@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
     }
 
     addToCart(): void {
-        console.log('add to cart product id ' + this.product.id + ', quantity: ' + this.quantity);
+        console.log("add to cart product id " + this.product.id + ", quantity: " + this.quantity);
     }
 
     rateProduct(starNum): void {

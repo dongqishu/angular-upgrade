@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, Output, EventEmitter } from 'ng-metadata/core';
-import './quantity.component.css';
+import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
+import "./quantity.component.css";
 
 @Component({
-    selector: 'app-quantity',
-    templateUrl: './quantity/quantity.component.html'
+    selector: "app-quantity",
+    templateUrl: "./quantity/quantity.component.html"
 })
 export class QuantityComponent implements OnInit {
     quantity: number;
     @Output() onQuantityChanged = new EventEmitter<number>();
 
-    constructor(){}
+    constructor() {}
 
     ngOnInit() {
         this.quantity = 1;

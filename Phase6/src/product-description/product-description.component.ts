@@ -1,18 +1,24 @@
-class ProductDescriptionController {
+import { Product } from "./../product/product.model";
+import { IComponentController, IComponentOptions } from "angular";
+
+export class ProductDescriptionController implements ng.IComponentController {
     product: Product;
 
     constructor(){}
 
-    $onInit() {
-    }
+    $onInit() {}
 }
 
-angular
-    .module('app')
-    .component('appProductDescription', {
-        templateUrl: 'src/product-description/product-description.component.html',
-        controller: ProductDescriptionController,
-        bindings: {
+export class ProductDescriptionComponent implements ng.IComponentOptions {
+    public bindings:any;
+    public controller:IComponentController;
+    public templateUrl:string;
+
+    constructor() {
+        this.templateUrl = "./product-description/product-description.component.html";
+        this.controller = ProductDescriptionController;
+        this.bindings = {
             product: "<"
         }
-    });
+    }
+}
