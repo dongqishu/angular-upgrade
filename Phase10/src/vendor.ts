@@ -1,8 +1,3 @@
-import "angular";
-import "ng-metadata/platform-browser-dynamic";
-import "ng-metadata/core";
-import "ng-metadata/common";
-
 // Angular 2
 import "@angular/platform-browser";
 import "@angular/platform-browser-dynamic";

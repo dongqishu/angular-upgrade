@@ -8,7 +8,7 @@
             <app-reviews [reviews]="product.reviews" (onRate)="rateProduct($event)"></app-reviews>
             <div class="row">
                 <div class="col-md-12 bottom-rule">
-                    <h2 class="product-price">{{ product.price | currency }}</h2>
+                    <h2 class="product-price">{{ product.price | currency:'USD' }}</h2>
                 </div>
             </div>
             <div class="row add-to-cart">
@@ -22,7 +22,7 @@
                     <span class="monospaced">In Stock</span>
                 </div>
                 <div class="col-md-5 text-center">
-                    <span class="monospaced">{{ product.price * quantity | currency }}</span>
+                    <span class="monospaced">{{ product.price * quantity | currency:'USD' }}</span>
                 </div>
             </div>
             <div class="row">
