@@ -12,35 +12,33 @@
         });
     
     function ReviewsController(ProductService) {
-        var ctrl = this;
-
-        ctrl.$onInit = init;
-        ctrl.starHover = starHover;
-        ctrl.starStyle = starStyle;
-        ctrl.hasStar = hasStar;
-        ctrl.starExit = starExit;
-        ctrl.rateProduct = rateProduct;
+        this.$onInit = init;
+        this.starHover = starHover;
+        this.starStyle = starStyle;
+        this.hasStar = hasStar;
+        this.starExit = starExit;
+        this.rateProduct = rateProduct;
 
         function init(){
-            ctrl.hoveringOver = 0;
+            this.hoveringOver = 0;
         }
         
         function starHover(starNum){
             console.log("star hover " + starNum);
-            ctrl.hoveringOver = starNum;
+            this.hoveringOver = starNum;
         }
 
         function starStyle(starNum){
-            if (starNum <= ctrl.hoveringOver || (starNum <= ctrl.product.reviews.myRating && ctrl.hoveringOver === 0)) {
+            if (starNum <= this.hoveringOver || (starNum <= this.product.reviews.myRating && this.hoveringOver === 0)) {
                 return { "color" : "gold" };
             }
             return {};
         }
 
         function hasStar(starNum){
-            if ((starNum <= ctrl.product.reviews.stars && ctrl.product.reviews.myRating === null) 
-            || starNum <= ctrl.hoveringOver || 
-            (starNum <= ctrl.product.reviews.myRating && ctrl.hoveringOver === 0)){
+            if ((starNum <= this.product.reviews.stars && this.product.reviews.myRating === null) 
+            || starNum <= this.hoveringOver || 
+            (starNum <= this.product.reviews.myRating && this.hoveringOver === 0)){
                 return true;
             }
             return false;
@@ -48,15 +46,15 @@
 
         function starExit(){
             console.log("star exit");
-            ctrl.hoveringOver = 0;
+            this.hoveringOver = 0;
         }
 
         function rateProduct(starNum){
             console.log("Rating product " + starNum + " stars.");
             // changing state of Product
-            ctrl.product.reviews.myRating = starNum;
+            this.product.reviews.myRating = starNum;
             // calling a service
-            ProductService.rateProduct(ctrl.product.id, starNum);
+            ProductService.rateProduct(this.product.id, starNum);
         }
     }
 })();

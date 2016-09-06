@@ -10,23 +10,22 @@
         });
 
     function QuantityController() {
-        var ctrl = this;
-        ctrl.$onInit = $onInit;
-        ctrl.decreateQuantity = decreaseQuantity;
-        ctrl.increaseQuantity = increaseQuantity;
+        this.$onInit = $onInit;
+        this.decreateQuantity = decreaseQuantity;
+        this.increaseQuantity = increaseQuantity;
 
         function $onInit() {
-            ctrl.quantity = 1;
+            this.quantity = 1;
         }
 
         function decreaseQuantity() {
-            ctrl.quantity--;
-            ctrl.onQuantityChanged({ quantity: ctrl.quantity });
+            this.quantity--;
+            this.onQuantityChanged({ quantity: this.quantity });
         }
 
         function increaseQuantity() {
-            ctrl.quantity++;
-            ctrl.onQuantityChanged({ quantity: ctrl.quantity });
+            this.quantity++;
+            this.onQuantityChanged({ quantity: this.quantity });
         }
     }
 })();

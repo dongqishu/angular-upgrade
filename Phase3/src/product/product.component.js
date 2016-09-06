@@ -9,21 +9,19 @@
         });
 
     function ProductController(ProductService, $routeParams, $location) {
-        var ctrl = this;
-
-        ctrl.$onInit = init;
-        ctrl.decreaseQuantity = decreaseQuantity;
-        ctrl.increaseQuantity = increaseQuantity;
-        ctrl.addToCart = addToCart;
+        this.$onInit = init;
+        this.decreaseQuantity = decreaseQuantity;
+        this.increaseQuantity = increaseQuantity;
+        this.addToCart = addToCart;
 
         function init(){
-            ctrl.product = {};
+            this.product = {};
             ProductService.getProductById($routeParams.id)
                 .then(res => {
-                    ctrl.product = res.data;
-                    ctrl.product.quantity = 1;
-                    ctrl.product.selectedTab = 'description';
-                    ctrl.productLoaded = true;
+                    this.product = res.data;
+                    this.product.quantity = 1;
+                    this.product.selectedTab = 'description';
+                    this.productLoaded = true;
                 }, error => console.log(error));
         }
 

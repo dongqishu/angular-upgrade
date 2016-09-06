@@ -12,11 +12,10 @@
         });
 
     function  ProductTabsController() {
-        var ctrl = this;
-        ctrl.$onInit = $onInit;
+        this.$onInit = $onInit;
         
         function $onInit(){
-            ctrl.selectedTab = 'description';
+            this.selectedTab = 'description';
         }
     }
 })();

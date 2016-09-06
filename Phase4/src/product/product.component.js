@@ -9,25 +9,23 @@
         });
 
     function ProductController(ProductService, $routeParams, $location) {
-        var ctrl = this;
-
-        ctrl.$onInit = init;
-        ctrl.quantityChanged = quantityChanged;
-        ctrl.addToCart = addToCart;
-        ctrl.rateProduct = rateProduct;
+        this.$onInit = init;
+        this.quantityChanged = quantityChanged;
+        this.addToCart = addToCart;
+        this.rateProduct = rateProduct;
 
         function init(){
-            ctrl.product = {};
+            this.product = {};
             ProductService.getProductById($routeParams.id)
                 .then(res => {
-                    ctrl.product = res.data;
-                    ctrl.quantity = 1;
-                    ctrl.productLoaded = true;
+                    this.product = res.data;
+                    this.quantity = 1;
+                    this.productLoaded = true;
                 }, error => console.log(error));
         }
 
         function quantityChanged(quantity) {
-            ctrl.quantity = quantity;
+            this.quantity = quantity;
         }
 
         function addToCart(product){
@@ -36,8 +34,8 @@
 
         function rateProduct(starNum){
             console.log("Rating product " + starNum + " stars.");
-            ctrl.product.reviews.myRating = starNum;
-            ProductService.rateProduct(ctrl.product.id, starNum);
+            this.product.reviews.myRating = starNum;
+            ProductService.rateProduct(this.product.id, starNum);
         }
     }
 })();

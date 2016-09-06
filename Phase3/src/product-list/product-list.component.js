@@ -9,17 +9,15 @@
         });
 
     function ProductListController($location, ProductService) {
-        var ctrl = this;
-
-        ctrl.$onInit = init;
-        ctrl.selectProduct = selectProduct;
+        this.$onInit = init;
+        this.selectProduct = selectProduct;
 
         function init(){
-            ctrl.products = [];
+            this.products = [];
 
             ProductService.getProducts()
                 .then(res => {
-                    ctrl.products = res.data;
+                    this.products = res.data;
                 }, error => console.log(error));
         }
         

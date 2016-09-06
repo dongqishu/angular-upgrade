@@ -13,34 +13,32 @@
         });
     
     function ReviewsController() {
-        var ctrl = this;
-
-        ctrl.$onInit = init;
-        ctrl.starHover = starHover;
-        ctrl.starStyle = starStyle;
-        ctrl.hasStar = hasStar;
-        ctrl.starExit = starExit;
+        this.$onInit = init;
+        this.starHover = starHover;
+        this.starStyle = starStyle;
+        this.hasStar = hasStar;
+        this.starExit = starExit;
 
         function init(){
-            ctrl.hoveringOver = 0;
+            this.hoveringOver = 0;
         }
         
         function starHover(starNum){
             console.log("star hover " + starNum);
-            ctrl.hoveringOver = starNum;
+            this.hoveringOver = starNum;
         }
 
         function starStyle(starNum){
-            if (starNum <= ctrl.hoveringOver || (starNum <= ctrl.reviews.myRating && ctrl.hoveringOver === 0)) {
+            if (starNum <= this.hoveringOver || (starNum <= this.reviews.myRating && this.hoveringOver === 0)) {
                 return { "color" : "gold" };
             }
             return {};
         }
 
         function hasStar(starNum){
-            if ((starNum <= ctrl.reviews.stars && ctrl.reviews.myRating === null) 
-            || starNum <= ctrl.hoveringOver || 
-            (starNum <= ctrl.reviews.myRating && ctrl.hoveringOver === 0)){
+            if ((starNum <= this.reviews.stars && this.reviews.myRating === null) 
+            || starNum <= this.hoveringOver || 
+            (starNum <= this.reviews.myRating && this.hoveringOver === 0)){
                 return true;
             }
             return false;
@@ -48,7 +46,7 @@
 
         function starExit(){
             console.log("star exit");
-            ctrl.hoveringOver = 0;
+            this.hoveringOver = 0;
         }
     }
 })();
