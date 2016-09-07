@@ -6,7 +6,6 @@
         .component('appReviews', {
             templateUrl: '/src/reviews/reviews.component.html',
             controller: ReviewsController,
-            restrict: 'E',
             bindings: {
                 product: "="
             }    

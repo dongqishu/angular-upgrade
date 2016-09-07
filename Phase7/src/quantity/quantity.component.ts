@@ -1,3 +1,5 @@
+import "./quantity.component.css";
+
 import { 
     Component, 
     Input, 
@@ -5,7 +7,6 @@ import {
     Output, 
     EventEmitter 
 } from "ng-metadata/core";
-import "./quantity.component.css";
 
 @Component({
     selector: "app-quantity",
