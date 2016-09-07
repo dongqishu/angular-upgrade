@@ -2,11 +2,9 @@ class ReviewsController {
     hoveringOver: number;
     reviews: Reviews;
 
-    constructor(){
-        console.log('reviews constructor');
-    }
+    constructor() {}
 
-    $onInit(){
+    $onInit(): void { 
         this.hoveringOver = 0;
         console.log('reviews init');
         console.log(this.reviews);
