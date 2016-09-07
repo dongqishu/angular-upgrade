@@ -1,4 +1,10 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "ng-metadata/core";
+import { 
+    Component, 
+    Input, 
+    OnInit, 
+    Output, 
+    EventEmitter 
+} from "ng-metadata/core";
 import "./quantity.component.css";
 
 @Component({

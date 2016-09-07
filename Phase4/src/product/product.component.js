@@ -33,7 +33,6 @@
         }
 
         function rateProduct(starNum){
-            console.log("Rating product " + starNum + " stars.");
             this.product.reviews.myRating = starNum;
             ProductService.rateProduct(this.product.id, starNum);
         }

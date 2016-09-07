@@ -5,7 +5,9 @@
         </div>
         <div class="col-md-6">
             <app-product-description product="$ctrl.product"></app-product-description>
-            <app-reviews reviews="$ctrl.product.reviews" on-rate="$ctrl.rateProduct(stars)"></app-reviews>
+            <app-reviews reviews="$ctrl.product.reviews" 
+                         on-rate="$ctrl.rateProduct(stars)">
+            </app-reviews>
             <div class="row">
                 <div class="col-md-12 bottom-rule">
                     <h2 class="product-price">{{ $ctrl.product.price | currency }}</h2>

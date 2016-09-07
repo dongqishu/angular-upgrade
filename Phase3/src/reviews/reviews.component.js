@@ -6,36 +6,30 @@
         .component('appReviews', {
             templateUrl: '/src/reviews/reviews.component.html',
             controller: ReviewsController,
+            restrict: 'E',
             bindings: {
                 product: "="
             }    
         });
     
     function ReviewsController(ProductService) {
-        this.$onInit = init;
-        this.starHover = starHover;
-        this.starStyle = starStyle;
-        this.hasStar = hasStar;
-        this.starExit = starExit;
-        this.rateProduct = rateProduct;
-
-        function init(){
+        this.$onInit = function(){
             this.hoveringOver = 0;
         }
         
-        function starHover(starNum){
+        this.starHover = function(starNum){
             console.log("star hover " + starNum);
             this.hoveringOver = starNum;
         }
 
-        function starStyle(starNum){
+        this.starStyle = function(starNum){
             if (starNum <= this.hoveringOver || (starNum <= this.product.reviews.myRating && this.hoveringOver === 0)) {
                 return { "color" : "gold" };
             }
             return {};
         }
 
-        function hasStar(starNum){
+        this.hasStar = function(starNum){
             if ((starNum <= this.product.reviews.stars && this.product.reviews.myRating === null) 
             || starNum <= this.hoveringOver || 
             (starNum <= this.product.reviews.myRating && this.hoveringOver === 0)){
@@ -44,16 +38,12 @@
             return false;
         }
 
-        function starExit(){
-            console.log("star exit");
+        this.starExit = function() {
             this.hoveringOver = 0;
         }
 
-        function rateProduct(starNum){
-            console.log("Rating product " + starNum + " stars.");
-            // changing state of Product
+        this.rateProduct = function(starNum){
             this.product.reviews.myRating = starNum;
-            // calling a service
             ProductService.rateProduct(this.product.id, starNum);
         }
     }

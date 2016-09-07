@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import { FORM_DIRECTIVES } from "@angular/forms";
 
 @Component({
     selector: "app-quantity",

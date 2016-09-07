@@ -5,7 +5,7 @@
         .module('app')
         .controller('ProductController', ProductController);
 
-    function ProductController($scope, ProductService, $routeParams, $location) {
+    function ProductController($scope, ProductService, $routeParams) {
        init();
 
        $scope.decreaseQuantity = decreaseQuantity;
