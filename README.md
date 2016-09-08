@@ -5,9 +5,14 @@ we have a number of best practices we can start adhering to immediately with Ang
 benefit us with our understanding of Angular 2 as well as help us write clean, testable, and maintainable code.  Many of them
 are optional but recommended.
 
+This repository is used for a presentation with the slides located here: https://docs.google.com/presentation/d/1ug2uBFY2Fx8sB6CgHvHdc-827xigh0nLWGZ1fv-kqzc/edit?usp=sharing
+
+Please consult the official Angular upgrade documentation for the latest information.
+https://angular.io/docs/ts/latest/guide/upgrade.html
+
 ## Phase 1
 
-Evaluate your current angular 1 app and plan ahead.
+Evaluate your current angular 1 app and plan ahead.  This is just our starting point, basic Angular 1 application.
 
 ## Phase 2
 
